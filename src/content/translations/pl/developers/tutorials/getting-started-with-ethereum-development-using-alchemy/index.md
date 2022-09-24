@@ -9,7 +9,7 @@ tags:
   - "węzły"
   - "zapytania"
   - "alchemy"
-skill: początkujący
+skill: beginner
 lang: pl
 sidebar: true
 published: 2020-10-30
@@ -25,7 +25,7 @@ Zarejestruj się w Alchemy, aby napisać swój pierwszy skrypt web3! Nie jest wy
 
 ## 1\. Zarejestruj się na darmowym koncie Alchemy {#sign-up-for-a-free-alchemy-account}
 
-Tworzenie konta z Alchemy jest łatwe, [zarejestruj się za darmo tutaj](https://dashboard.alchemyapi.io/signup/).
+Tworzenie konta z Alchemy jest łatwe, [zarejestruj się za darmo tutaj](https://auth.alchemyapi.io/signup).
 
 ## 2\. Utwórz aplikację Alchemy {#create-an-alchemy-app}
 
@@ -79,7 +79,7 @@ curl [https://eth-mainnet.alchemyapi.io/v2/demo](https://eth-mainnet.alchemyapi.
 
 **_UWAGA:_** Skrypty poniżej muszą być uruchomione w **kontekście węzłów** lub **zapisane w pliku**, nie uruchamiaj z wiersza poleceń. Jeśli nie masz jeszcze zainstalowanego węzła lub npm, sprawdź ten [przewodnik konfiguracji macs](https://app.gitbook.com/@alchemyapi/s/alchemy/guides/alchemy-for-macs).
 
-Istnieją tony [bibliotek Web3](https://docs.alchemyapi.io/guides/getting-started#other-web3-libraries) które możesz zintegrować z alchemy. zalecamy użycie [Alchemy Web3](https://docs.alchemyapi.io/documentation/alchemy-web3), upuszczonego zamiennika dla web3., zbudowany i skonfigurowany do bezproblemowej pracy z Alchemy. Zapewnia to wiele zalet, takich jak automatyczne próby i solidne wsparcie WebSocket.
+Istnieją tony [bibliotek Web3](https://docs.alchemyapi.io/guides/getting-started#other-web3-libraries) które możesz zintegrować z alchemy. zalecamy użycie [Alchemy Web3](https://docs.alchemy.com/reference/api-overview), upuszczonego zamiennika dla web3., zbudowany i skonfigurowany do bezproblemowej pracy z Alchemy. Zapewnia to wiele zalet, takich jak automatyczne próby i solidne wsparcie WebSocket.
 
 Aby zainstalować AlchemyWeb3.js, **przejdź do katalogu projektu** i uruchom:
 
@@ -142,14 +142,14 @@ Nie znasz rozwiązań asynchronicznych? Sprawdź to [Medium post](https://medium
 node index.js
 ```
 
-**‌5. Powinieneś teraz zobaczyć najnowszy numer bloku w konsoli!**
+**5. Powinieneś teraz zobaczyć najnowszy numer bloku w konsoli!**
 
 ```
 The latest block number is 11043912
 ```
 
-‌**Woo! Gratulacje! Właśnie napisałeś swój pierwszy skrypt web3 używając Alchemy 🎉**
+**Woo! Gratulacje! Właśnie napisałeś swój pierwszy skrypt web3 używając Alchemy 🎉**
 
 Nie jesteś pewien, co zrobić dalej? Spróbuj wdrożyć pierwszy kontrakt inteligentny i popracuj, programując w Solidity [_Hello World Smart_](https://docs.alchemyapi.io/tutorials/hello-world-smart-contract) _Contract Guide, lub sprawdź, co wiesz o pulpicie nawigacyjnym za pomocą_ [_Dashboard Demo App_](https://docs.alchemyapi.io/tutorials/demo-app)_!_
 
-_[Zarejestruj się przy użyciu Alchemy za darmo](https://dashboard.alchemyapi.io/signup/), sprawdź naszą [dokumentację](https://docs.alchemyapi.io/), oraz najnowsze wiadomości, obserwuj nas na [Twitterze](https://twitter.com/AlchemyPlatform)_.
+_[Zarejestruj się przy użyciu Alchemy za darmo](https://auth.alchemyapi.io/signup), sprawdź naszą [dokumentację](https://docs.alchemyapi.io/), oraz najnowsze wiadomości, obserwuj nas na [Twitterze](https://twitter.com/AlchemyPlatform)_.

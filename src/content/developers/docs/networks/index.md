@@ -5,56 +5,121 @@ lang: en
 sidebar: true
 ---
 
-Since Ethereum is a protocol, this means there can be multiple independent "networks" conforming to this protocol that do not interact with each other.
+Networks are different Ethereum environments you can access for development, testing, or production use cases. Since Ethereum is a protocol, there can be multiple independent "networks" that conform to the protocol without interacting with each other.
 
-Networks are different Ethereum environments you can access for development, testing, or production use cases. Your Ethereum account will work across the different networks but your account balance and transaction history wont carry over from the main Ethereum network. For testing purposes, it's useful to know which networks are available and how to get testnet ETH so you can play around with it.
+Your Ethereum account will work across the different networks, but your account balance and transaction history won't carry over from the main Ethereum network. For testing purposes, it's useful to know which networks are available and how to get testnet ETH to play around with.
 
 ## Prerequisites {#prerequisites}
 
-You should understand the basics of Ethereum before reading up on the different networks as the test networks will give you a cheap, safe version of Ethereum to play around with. Try our [introduction to Ethereum](/developers/docs/intro-to-ethereum/).
+You should understand the [basics of Ethereum](/developers/docs/intro-to-ethereum/) before reading up on the different networks, as the test networks will give you a cheap, safe version of Ethereum to play around with.
 
 ## Public networks {#public-networks}
 
-Public networks are accessible to anyone in the world with an internet connection. Anyone can read or create transactions on a public blockchain and validate the transactions being executed. Agreement on transactions and the state of the network is decided by a consensus of peers.
+Public networks are accessible to anyone in the world with an internet connection. Anyone can read or create transactions on a public blockchain and validate the transactions being executed. The consensus among peers decides on the inclusion of transactions and the state of the network.
 
-### Mainnet {#mainnet}
+### Ethereum Mainnet {#ethereum-mainnet}
 
 Mainnet is the primary public Ethereum production blockchain, where actual-value transactions occur on the distributed ledger.
 
 When people and exchanges discuss ETH prices, they're talking about Mainnet ETH.
 
-### Testnets {#testnets}
+### Ethereum Testnets {#ethereum-testnets}
 
 In addition to Mainnet, there are public testnets. These are networks used by protocol developers or smart contract developers to test both protocol upgrades as well as potential smart contracts in a production-like environment before deployment to Mainnet. Think of this as an analog to production versus staging servers.
 
-It’s generally important to test any contract code you write on a testnet before deploying to the Mainnet. If you're building a dapp that integrates with existing smart contracts, most projects have copies deployed to testnests that you can interact with.
+You should test any contract code you write on a testnet before deploying to Mainnet. Among dapps that integrate with existing smart contracts, most projects have copies deployed to testnets.
 
-Most testnets use a proof-of-authority consensus mechanism. This means a small number of nodes are chosen to validate transactions and create new blocks – staking their identity in the process. It's hard to incentivise mining on a proof-of-work testnet which can leave it vulnerable.
-
-#### Görli {#goerli}
-
-A proof-of-authority testnet that works across clients.
-
-#### Kovan {#kovan}
-
-A proof-of-authority testnet for those running OpenEthereum clients.
-
-#### Rinkeby {#rinkeby}
-
-A proof-of-authority testnet for those running Geth client.
-
-#### Ropsten {#ropsten}
-
-A proof-of-work testnet. This means it's the best like-for-like representation of Ethereum.
-
-### Testnet faucets {#testnet-faucets}
+Most testnets started by using a proof-of-authority consensus mechanism. This means a small number of nodes are chosen to validate transactions and create new blocks – staking their identity in the process. Alternatively, some testnets started off using a proof-of-work consensus mechanism with just a few permissioned miners. However, in preparation for [The Merge](/upgrades/merge), these testnets underwent their own transitions to proof-of-stake, offering the opportunity for multiple 'dress-rehearsals' before developers merged Ethereum Mainnet. The Ethereum testnets are now proof-of-stake, just like Ethereum Mainnet.
 
 ETH on testnets has no real value; therefore, there are no markets for testnet ETH. Since you need ETH to actually interact with Ethereum, most people get testnet ETH from faucets. Most faucets are webapps where you can input an address which you request ETH to be sent to.
 
-- [Görli faucet](https://faucet.goerli.mudit.blog/)
-- [Kovan faucet](https://faucet.kovan.network/)
+#### Goerli {#goerli}
+
+Goerli is a proof-of-stake testnet. It is expected to be maintained long-term as a stable testnet for application developers. Before its testnet merge, Goerli was a proof-of-authority testnet.
+
+- [Website](https://goerli.net/)
+- [GitHub](https://github.com/goerli/testnet)
+- [Etherscan](https://goerli.etherscan.io)
+
+##### Goerli faucets
+
+- [Goerli faucet](https://faucet.goerli.mudit.blog/)
+- [Chainlink faucet](https://faucets.chain.link/)
+- [Alchemy Goerli Faucet](https://goerlifaucet.com/)
+
+#### Sepolia {#sepolia}
+
+Sepolia is a proof-of-stake testnet. Although Sepolia is still running, it is not currently planned to be maintained long-term. Before undergoing The Merge in June 2022, Sepolia was a proof-of-work testnet.
+
+- [Website](https://sepolia.dev/)
+- [GitHub](https://github.com/goerli/sepolia)
+- [Otterscan](https://sepolia.otterscan.io/)
+- [Etherscan](https://sepolia.etherscan.io)
+
+##### Sepolia faucets
+
+- [Sepolia faucet](https://faucet.sepolia.dev/)
+- [FaucETH](https://fauceth.komputing.org)
+
+#### Ropsten _(deprecated)_ {#ropsten}
+
+_Note, [the Ropsten testnet is deprecated](https://github.com/ethereum/pm/issues/460) and will no longer receive protocol upgrades. Please consider migrating your applications to Sepolia or Goerli._
+
+Ropsten is a proof-of-stake testnet. Ropsten will be deprecated in late 2022. Before undergoing The Merge in May 2022, Ropsten was a proof-of-work testnet.
+
+##### Ropsten faucets
+
+- [FaucETH](https://fauceth.komputing.org) (multi-Chain faucet without the need for social account)
+- [Paradigm faucet](https://faucet.paradigm.xyz/)
+
+#### Rinkeby _(deprecated)_ {#rinkeby}
+
+_Note: [the Rinkeby testnet is deprecated](https://github.com/ethereum/pm/issues/460) and will no longer receive protocol upgrades. Please consider migrating your applications to Sepolia or Goerli._
+
+A proof-of-authority testnet for those running old versions of the Geth client.
+
+##### Rinkeby faucets
+
+- [FaucETH](https://fauceth.komputing.org) (multi-Chain faucet without the need for social account)
+- [Alchemy faucet](https://RinkebyFaucet.com)
+- [Chainlink faucet](https://faucets.chain.link/)
+- [Paradigm faucet](https://faucet.paradigm.xyz/)
 - [Rinkeby faucet](https://faucet.rinkeby.io/)
-- [Ropsten faucet](https://faucet.ropsten.be/)
+
+#### Kovan _(deprecated)_ {#kovan}
+
+_Note: [the Kovan testnet is deprecated](https://github.com/ethereum/pm/issues/460) and will no longer receive protocol upgrades. Please consider migrating your applications to Sepolia or Goerli._
+
+A very old proof-of-authority testnet for those still running OpenEthereum clients.
+
+##### Kovan faucets
+
+- [FaucETH](https://fauceth.komputing.org) (multi-Chain faucet without the need for social account)
+- [Chainlink faucet](https://faucets.chain.link/)
+- [Paradigm faucet](https://faucet.paradigm.xyz/)
+
+### Layer 2 testnets {#layer-2-testnets}
+
+[Layer 2 (L2)](/layer-2/) is a collective term to describe a specific set of Ethereum scaling solutions. A layer 2 is a separate blockchain that extends Ethereum and inherits the security guarantees of Ethereum. Layer 2 testnets are usually tightly coupled to public Ethereum testnets.
+
+#### Arbitrum Rinkeby {#arbitrum-rinkeby}
+
+A testnet for [Arbitrum](https://arbitrum.io/).
+
+Arbitrum Rinkeby faucets:
+
+- [FaucETH](https://fauceth.komputing.org) (multi-Chain faucet without the need for social account)
+- [Chainlink faucet](https://faucets.chain.link/)
+- [Paradigm faucet](https://faucet.paradigm.xyz/)
+
+#### Optimistic Kovan {#optimistic-kovan}
+
+A testnet for [Optimism](https://www.optimism.io/).
+
+Optimistic Kovan faucets:
+
+- [FaucETH](https://fauceth.komputing.org) (multi-Chain faucet without the need for social account)
+- [Paradigm faucet](https://faucet.paradigm.xyz/)
 
 ## Private networks {#private-networks}
 
@@ -70,22 +135,13 @@ There are projects and tools dedicated to assist with this. Learn more about [de
 
 The consensus process is controlled by a pre-defined set of nodes that are trusted. For example, a private network of known academic institutions that each govern a single node, and blocks are validated by a threshold of signatories within the network.
 
-If a public Ethereum network is like the public internet, you can think of a consortium network as a private intranet.
+If a public Ethereum network is like the public internet, a consortium network is like a private intranet.
 
-<!-- TODO
+## Related tools {#related-tools}
 
-## Interacting with testnets
-
-### Your own local network {#your-own-local-network}
-
-`geth -—networkid="12345" console`
-
-### Testnets {#testnets-1}
-
-Wallets like MetaMask or MyEtherWallet will allow you to switch networks so you can test your apps using your test ETH.
-
--->
+- [Chainlist](https://chainlist.org/) _list of EVM networks to connect wallets and providers to the appropriate Chain ID and Network ID_
+- [EVM-based Chains](https://github.com/ethereum-lists/chains) _GitHub repo of chain metadata that powers Chainlist_
 
 ## Further reading {#further-reading}
 
-_Know of a community resource that helped you? Edit this page and add it!_
+- [The Evolution of Ethereum Testnets](https://etherworld.co/2022/08/19/the-evolution-of-ethereum-testnet/)

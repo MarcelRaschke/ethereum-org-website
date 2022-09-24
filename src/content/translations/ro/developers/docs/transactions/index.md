@@ -1,41 +1,37 @@
 ---
 title: Tranzacții
-description: O prezentare generală a tranzacțiilor Ethereum – cum funcționează, structura datelor și cum să le trimiți printr-o aplicație.
+description: O prezentare generală a tranzacțiilor Ethereum – cum funcționează, structura datelor și cum să le trimiteţi printr-o aplicație.
 lang: ro
 sidebar: true
-isOutdated: true
 ---
 
-Tranzacțiile sunt instrucțiuni semnate criptografic din conturi. Un cont va iniția o tranzacție pentru a actualiza starea rețelei Ethereum. Cea mai simplă tranzacție este transferarea de ETH dintr-un cont în altul.
-
-<!-- TODO explain these 2 types of transactions -->
-<!-- There are two types of transactions: those which result in message calls and those which result in contract creation. -->
-<!-- Contract creation results in the creation of a new contract account containing compiled smart contract bytecode. Whenever another account makes a message call to that contract, it executes its bytecode. -->
+Tranzacțiile sunt instrucțiuni semnate criptografic din conturi. Un cont inițiază o tranzacție pentru a actualiza starea rețelei Ethereum. Cea mai simplă tranzacție este transferarea de ETH dintr-un cont în altul.
 
 ## Condiții prealabile {#prerequisites}
 
-Pentru a te ajuta să înțelegi mai bine această pagină, îți recomandăm să citești mai întâi [Conturi](/developers/docs/accounts/) și [introducerea noastră în Ethereum](/developers/docs/intro-to-ethereum/).
+Pentru a vă ajuta să înțelegeți mai bine această pagină, vă recomandăm să citiți mai întâi [Conturi](/developers/docs/accounts/) și [introducere despre Ethereum](/developers/docs/intro-to-ethereum/).
 
 ## Ce este o tranzacție? {#whats-a-transaction}
 
-O tranzacție Ethereum se referă la o acțiune inițiată de un cont deținut din exterior, cu alte cuvinte un cont gestionat de o persoană, nu de un contract. De exemplu, dacă Bob trimite lui Alice 1 ETH, contul lui Bob, trebuie debitat, iar cel al lui Alice trebuie creditat. Această acțiune care schimbă starea, are loc în cadrul unei tranzacții.
+O tranzacție Ethereum se referă la o acțiune inițiată de un cont deținut din exterior, cu alte cuvinte un cont gestionat de o persoană, nu de un contract. De exemplu, dacă Bob trimite lui Alice 1 ETH, contul lui Bob trebuie debitat, iar cel al lui Alice trebuie creditat. Această acțiune care schimbă starea are loc în cadrul unei tranzacții.
 
-![Diagramă care arată o tranzacție care cauzează modificarea stării](../../../../../developers/docs/nodes-and-clients/tx.png) _Diagrama adaptată din [EVM Ethereum ilustrată](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)_
+![Diagramă care arată o tranzacție ce provoacă modificarea stării](./tx.png) _Diagramă adaptată din [Ethereum EVM ilustrat](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)_
 
-Tranzacțiile, care schimbă starea EVM, trebuie difuzate către întreaga rețea. Orice nod poate difuza o cerere, pentru ca o tranzacție să fie executată pe EVM; după aceasta, un miner va executa tranzacția și va propaga modificarea stării rezultate către restul rețelei.
+Tranzacțiile, care schimbă starea EVM, trebuie difuzate către întreaga rețea. Orice nod poate difuza cererea ca o tranzacție să fie executată pe EVM; după aceasta, un miner va executa tranzacția și va propaga modificarea stării ce rezultă către restul rețelei.
 
-Tranzacțiile trebuie să fie taxate și trebuie minate pentru a deveni valabile. Pentru a simplifica această prezentare generală, vom acoperi taxele pe gaz și exploatarea în altă parte.
+Tranzacțiile trebuie să fie taxate și trebuie minate pentru a deveni valide. Pentru a simplifica această prezentare generală, vom trata despre taxele pe gaz și exploatare în altă parte.
 
-O tranzacție trimisă include următoarele informații:
+O tranzacție trimisă cuprinde următoarele informații:
 
-- `recipient` – adresa de primire (dacă este un cont deținut extern, tranzacția va transfera valoarea. Dacă este un cont de contract, tranzacția va executa codul contractului)
-- `signature` – identificatorul expeditorului. Aceasta se generează atunci când cheia privată a expeditorului semnează tranzacția și confirmă că expeditorul a autorizat această tranzacție
-- `value` – cantitatea de ETH de transferat de la expeditor la destinatar (în WEI, o denominație a ETH)
-- `data` – câmp opțional pentru a include date arbitrare
-- `gasLimit` – cantitatea maximă de unități de gaz care pot fi consumate de tranzacție. Unitățile de gaz reprezintă pași de calcul
-- `gasPrice` – taxa pe care expeditorul o plătește pe unitatea de gaz
+- `destinatarul` – adresa de primire (dacă este un cont deținut extern, tranzacția va transfera valoare. Dacă este un cont de contract, tranzacția va executa codul contractului)
+- `semnătura` – identificatorul expeditorului. Aceasta se generează atunci când cheia privată a expeditorului semnează tranzacția și confirmă că expeditorul a autorizat această tranzacție
+- `valoarea` – cantitatea de ETH de transferat de la expeditor la destinatar (în WEI, o denominație a ETH-ului)
+- `date` – câmp opțional pentru a include date arbitrare
+- `gasLimit` – cantitatea maximă de unități de gaz care pot fi consumate de tranzacție. Unitățile de gaz reprezintă etape de calcul
+- `maxPriorityFeePerGas` - cantitatea maximă de gaz care va fi inclusă ca bacșiș pentru miner
+- `maxFeePerGas` - suma maximă de gaz care se convine să fie plătită pentru tranzacție (inclusiv `baseFeePerGas` și `maxPriorityFeePerGas`)
 
-Gazul este o referință la calculul necesar procesării tranzacției de către un miner. Utilizatorii trebuie să plătească o taxă pentru acest calcul. `gasLimit` și `gasPrice` determină taxa maximă de tranzacție plătită minerului. [Mai multe despre gaz](/developers/docs/gas/).
+Gazul se referă la calculul necesar procesării tranzacției de către un miner. Utilizatorii trebuie să plătească o taxă pentru acest calcul. `gasLimit`, și `maxPriorityFeePerGas` determină taxa maximă de tranzacție plătită miner-ului. [Mai multe despre gaz](/developers/docs/gas/).
 
 Obiectul tranzacției va arăta astfel:
 
@@ -44,13 +40,14 @@ Obiectul tranzacției va arăta astfel:
   from: "0xEA674fdDe714fd979de3EdF0F56AA9716B898ec8",
   to: "0xac03bb73b6a9e108530aff4df5077c2b3d481e5a",
   gasLimit: "21000",
-  gasPrice: "200",
+  maxFeePerGas: "300",
+  maxPriorityFeePerGas: "10",
   nonce: "0",
-  value: "10000000000",
+  value: "10000000000"
 }
 ```
 
-Dar un obiect de tranzacție trebuie să fie semnat, folosind cheia privată a expeditorului. Acest lucru demonstrează că tranzacția ar fi putut proveni doar de la expeditor și nu a fost trimisă în mod fraudulos.
+Dar un obiect de tranzacție trebuie să fie semnat folosind cheia privată a expeditorului. Acest lucru demonstrează că tranzacția ar fi putut proveni doar de la expeditor și nu a fost trimisă în mod fraudulos.
 
 Un client Ethereum precum Geth se va ocupa de acest proces de semnare.
 
@@ -65,7 +62,8 @@ Exemplu de apel [JSON-RPC](https://eth.wiki/json-rpc/API):
     {
       "from": "0x1923f626bb8dc025849e00f99c25fe2b2f7fb0db",
       "gas": "0x55555",
-      "gasPrice": "0x1234",
+      "maxFeePerGas": "0x1234",
+      "maxPriorityFeePerGas": "0x1234",
       "input": "0xabcd",
       "nonce": "0x0",
       "to": "0x07a565b7ed7d7a678680a4c162885bedbb695fe0",
@@ -85,7 +83,8 @@ Exemplu de răspuns:
     "raw": "0xf88380018203339407a565b7ed7d7a678680a4c162885bedbb695fe080a44401a6e4000000000000000000000000000000000000000000000000000000000000001226a0223a7c9bcf5531c99be5ea7082183816eb20cfe0bbc322e97cc5c7f71ab8b20ea02aadee6b34b45bb15bc42d9c09de4a6754e7000908da72d48cc7704971491663",
     "tx": {
       "nonce": "0x0",
-      "gasPrice": "0x1234",
+      "maxFeePerGas": "0x1234",
+      "maxPriorityFeePerGas": "0x1234",
       "gas": "0x55555",
       "to": "0x07a565b7ed7d7a678680a4c162885bedbb695fe0",
       "value": "0x1234",
@@ -102,29 +101,60 @@ Exemplu de răspuns:
 - `raw` este tranzacția semnată în formă codificată cu Prefix de lungime recursivă (RLP)
 - `tx` este tranzacția semnată în formă JSON
 
-Cu hash-ul semnăturii, tranzacția poate fi dovedită criptografic că a venit de la expeditor și a fost trimisă rețelei.
+Cu hash-ul semnăturii, se poate dovedi criptografic că tranzacția a venit de la expeditor și a fost trimisă rețelei.
 
-### Despre gaz {#on-gas}
+### The data field {#the-data-field}
+
+The vast majority of transactions access a contract from an externally-owned account. Most contracts are written in Solidity and interpret their data field in accordance with the [application binary interface (ABI)](/glossary/#abi).
+
+The first four bytes specify which function to call, using the hash of the function's name and arguments. You can sometimes identify the function from the selector using [this database](https://www.4byte.directory/signatures/).
+
+The rest of the calldata is the arguments, [encoded as specified in the ABI specs](https://docs.soliditylang.org/en/latest/abi-spec.html#formal-specification-of-the-encoding).
+
+For example, lets look at [this transaction](https://etherscan.io/tx/0xd0dcbe007569fcfa1902dae0ab8b4e078efe42e231786312289b1eee5590f6a1). Use **Click to see More** to see the calldata.
+
+The function selector is `0xa9059cbb`. There are several [known functions with this signature](https://www.4byte.directory/signatures/?bytes4_signature=0xa9059cbb). In this case [the contract source code](https://etherscan.io/address/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48#code) has been uploaded to Etherscan, so we know the function is `transfer(address,uint256)`.
+
+The rest of the data is:
+
+```
+0000000000000000000000004f6742badb049791cd9a37ea913f2bac38d01279
+000000000000000000000000000000000000000000000000000000003b0559f4
+```
+
+According to the ABI specifications, integer values (such as addresses, which are 20-byte integers) appear in the ABI as 32-byte words, padded with zeros in the front. So we know that the `to` address is [`4f6742badb049791cd9a37ea913f2bac38d01279`](https://etherscan.io/address/0x4f6742badb049791cd9a37ea913f2bac38d01279). The `value` is 0x3b0559f4 = 990206452.
+
+## Tipuri de tranzacții {#types-of-transactions}
+
+Pe Ethereum există câteva tipuri diferite de tranzacții:
+
+- Tranzacțiile obișnuite: o tranzacție de la un portofel la altul.
+- Tranzacții de implementare a contractelor: o tranzacție fără o adresă „la”, în cazul în care câmpul de date este utilizat pentru codul contractului.
+- Execution of a contract: a transaction that interacts with a deployed smart contract. In this case, 'to' address is the smart contract address.
+
+### On gas {#on-gas}
 
 După cum s-a menționat, tranzacțiile costă [gaz](/developers/docs/gas/) pentru a fi executate. Tranzacțiile de transfer simple necesită 21.000 de unități de Gaz.
 
-Deci, pentru ca Bob să îi trimită lui Alice 1 ETH la un `gasPrice` de 200 Gwei, el va trebui să plătească următoarea taxă:
+Astfel, pentru ca Bob să îi trimită lui Alice 1 ETH la un `baseFeePerGas` de 190 gwei și `maxPriorityFeePerGas` de 10 gwei, Bob va trebui să plătească următoarea taxă:
 
 ```
-200*21.000 = 4.200.000 GWEI
---sau--
-0,0042 ETH
+(190 + 10) * 21000 = 4,200,000 gwei
+--or--
+0.0042 ETH
 ```
 
-Contul lui Bob va fi debitat ** – 1,0042 ETH**
+Contul lui Bob va fi debitat **-1.0042 ETH**
 
-Contul lui Alice va fi creditat ** + 1,0 ETH**
+Contul lui Alice va fi creditat cu **+1.0 ETH**
 
-Minerul care procesează tranzacția va primi ** + 0,0042 ETH**
+Taxa de bază va fi arsă **-0.00399 ETH**
+
+Minerul păstrează bacșișul **+0.000210 ETH**
 
 Gazul este necesar și pentru orice interacțiune cu contractul inteligent.
 
-![Diagramă care arată modul în care este rambursat gazul neutilizat](../../../../../developers/docs/nodes-and-clients/gas-tx.png) _Diagramă adaptată din [EVM Ethereum ilustrat ](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)_
+![Diagrama care arată modul în care este rambursat gazul neutilizat](./gas-tx.png) _Diagramă adaptată din [Ethereum EVM ilustrat](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)_
 
 Orice gaz neutilizat într-o tranzacție este rambursat în contul utilizatorului.
 
@@ -132,169 +162,48 @@ Orice gaz neutilizat într-o tranzacție este rambursat în contul utilizatorulu
 
 Odată ce tranzacția a fost trimisă, se întâmplă următoarele:
 
-1. Odată ce trimiți o tranzacție, criptografia generează un hash de tranzacție: `0x97d99bc7729211111a21b12c933c949d4f31684f1d6954ff477d0477538ff017`
-2. Tranzacția este apoi transmisă în rețea și inclusă într-un grup (temporar) cu ​​multe alte tranzacții.
-3. Un miner trebuie să aleagă tranzacția ta și să o includă într-un bloc pentru a o verifica și a o considera „reușită”.
-   - S-ar putea să aștepți în această etapă dacă rețeaua este ocupată și minerii nu sunt în măsură să țină pasul. Minerii vor acorda întotdeauna prioritate tranzacțiilor cu `GASPRICE` mai mare, deoarece vor păstra taxele.
-4. Tranzacția ta va primi, de asemenea, un număr de confirmare a blocului. Acesta este numărul de blocuri create de la blocul în care a fost inclusă tranzacția. Cu cât numărul este mai mare, cu atât este mai mare certitudinea, că tranzacția a fost procesată și recunoscută de rețea. Acest lucru se datorează faptului că uneori este posibil ca blocul în care a fost inclusă tranzacția ta să nu fi intrat în lanț.
-   - Cu cât numărul de confirmare a blocului este mai mare, cu atât tranzacția este mai imuabilă. Deci, pentru tranzacțiile cu valoare mai mare, pot fi dorite mai multe confirmări de bloc.
-
-<!-- **State change**
-
-FROM THE WHITEPAPER:
-
-1. Check if the transaction is well-formed (ie. has the right number of values), the signature is valid, and the nonce matches the nonce in the sender's account. If not, return an error.
-2. Calculate the transaction fee as `STARTGAS * GASPRICE`, and determine the sending address from the signature. Subtract the fee from the sender's account balance and increment the sender's nonce. If there is not enough balance to spend, return an error.
-3. Initialize `GAS = STARTGAS`, and take off a certain quantity of gas per byte to pay for the bytes in the transaction.
-4. Transfer the transaction value from the sender's account to the receiving account. If the receiving account does not yet exist, create it. If the receiving account is a contract, run the contract's code either to completion or until the execution runs out of gas.
-5. If the value transfer failed because the sender did not have enough money, or the code execution ran out of gas, revert all state changes except the payment of the fees, and add the fees to the miner's account.
-6. Otherwise, refund the fees for all remaining gas to the sender, and send the fees paid for gas consumed to the miner.
- -->
-<!-- ## Failed transactions
-
-A transaction can fail for a number of reasons:
-
-- Not enough gas
-  - The gas limit is too low
-- Reverted -->
-
-<!-- ## Messages
-
-Messages are like transactions between contract accounts but they're not added to the blockchain. They allow smart contracts to call other contracts and trigger their execution.
-
-FROM WHITEPAPER:
-
-A message is produced when a contract currently executing code executes the `CALL` opcode, which produces and executes a message. Like a transaction, a message leads to the recipient account running its code. Thus, contracts can have relationships with other contracts in exactly the same way that external actors can.
-
-@Sam Richards help me understand messages please :D
-
-```
-// FROM SOLIDITY DOCS
-Contracts can call other contracts or send ether to non-contract accounts by the means of message calls. Message calls are similar to transactions, in that they have a source, a target, data payload, Ether, gas and return data. In fact, every transaction consists of a top-level message call which in turn can create further message calls.
-
-A contract can decide how much of its remaining gas should be sent with the inner message call and how much it wants to retain. If an out-of-gas exception happens in the inner call (or any other exception), this will be signalled by an error value put onto the stack. In this case, only the gas sent together with the call is used up. In Solidity, the calling contract causes a manual exception by default in such situations, so that exceptions “bubble up” the call stack.
-
-As already said, the called contract (which can be the same as the caller) will receive a freshly cleared instance of memory and has access to the call payload - which will be provided in a separate area called the calldata. After it has finished execution, it can return data which will be stored at a location in the caller’s memory preallocated by the caller.
-
-Calls are limited to a depth of 1024, which means that for more complex operations, loops should be preferred over recursive calls.
-```
-
-<!-- Feels like this should maybe form a more advanced/complex doc that sits under transactions. Stuff like Ethers and providers need some sort of intro-->
-
-<!-- ## How to send a transaction -->
-
-<!-- `web3.eth.sendTransaction(transactionObject [, callback])` -->
-
-<!-- Using Ethers and a provider... -->
-
-<!-- ```js
-// We require a provider to send transactions
-let provider = ethers.getDefaultProvider()
-
-let privateKey =
-  "0x3141592653589793238462643383279502884197169399375105820974944592"
-let wallet = new ethers.Wallet(privateKey, provider)
-
-let amount = ethers.utils.parseEther("1.0")
-
-let tx = {
-  to: "0x88a5c2d9919e46f883eb62f7b8dd9d0cc45bc290",
-  // ... or supports ENS names
-  // to: "ricmoo.firefly.eth",
-
-  // We must pass in the amount as wei (1 ether = 1e18 wei), so we
-  // use this convenience function to convert ether to wei.
-  value: ethers.utils.parseEther("1.0"),
-}
-
-let sendPromise = wallet.sendTransaction(tx)
-
-sendPromise.then((tx) => {
-  console.log(tx)
-  // {
-  //    // All transaction fields will be present
-  //    "nonce", "gasLimit", "pasPrice", "to", "value", "data",
-  //    "from", "hash", "r", "s", "v"
-  // }
-})
-``` -->
-
-<!-- **Transaction requests**
-
-Ethers
-
-```js
-{
-    // Required unless deploying a contract (in which case omit)
-    to: addressOrName,  // the target address or ENS name
-
-    // These are optional/meaningless for call and estimateGas
-    nonce: 0,           // the transaction nonce
-    gasLimit: 0,        // the maximum gas this transaction may spend
-    gasPrice: 0,        // the price (in wei) per unit of gas
-
-    // These are always optional (but for call, data is usually specified)
-    data: "0x",         // extra data for the transaction, or input for call
-    value: 0,           // the amount (in wei) this transaction is sending
-    chainId: 3          // the network ID; usually added by a signer
-}
-``` -->
-
-<!-- **Transaction response**
-
-```js
-{
-    // Only available for mined transactions
-    blockHash: "0x7f20ef60e9f91896b7ebb0962a18b8defb5e9074e62e1b6cde992648fe78794b",
-    blockNumber: 3346463,
-    timestamp: 1489440489,
-
-    // Exactly one of these will be present (send vs. deploy contract)
-    // They will always be a properly formatted checksum address
-    creates: null,
-    to: "0xc149Be1bcDFa69a94384b46A1F91350E5f81c1AB",
-
-    // The transaction hash
-    hash: "0xf517872f3c466c2e1520e35ad943d833fdca5a6739cfea9e686c4c1b3ab1022e",
-
-    // See above "Transaction Requests" for details
-    data: "0x",
-    from: "0xEA674fdDe714fd979de3EdF0F56AA9716B898ec8",
-    gasLimit: utils.bigNumberify("90000"),
-    gasPrice: utils.bigNumberify("21488430592"),
-    nonce: 0,
-    value: utils.parseEther(1.0017071732629267),
-
-    // The chain ID; 0 indicates replay-attack vulnerable
-    // (eg. 1 = Homestead mainnet, 3 = Ropsten testnet)
-    chainId: 1,
-
-    // The signature of the transaction (TestRPC may fail to include these)
-    r: "0x5b13ef45ce3faf69d1f40f9d15b0070cc9e2c92f3df79ad46d5b3226d7f3d1e8",
-    s: "0x535236e497c59e3fba93b78e124305c7c9b20db0f8531b015066725e4bb31de6",
-    v: 37,
-
-    // The raw transaction (TestRPC may be missing this)
-    raw: "0xf87083154262850500cf6e0083015f9094c149be1bcdfa69a94384b46a1f913" +
-           "50e5f81c1ab880de6c75de74c236c8025a05b13ef45ce3faf69d1f40f9d15b0" +
-           "070cc9e2c92f3df79ad46d5b3226d7f3d1e8a0535236e497c59e3fba93b78e1" +
-           "24305c7c9b20db0f8531b015066725e4bb31de6"
-}
-``` -->
-
-<!-- ## How are transactions protected/safe? -->
+1. Odată ce trimiteți o tranzacție, criptografia generează un hash de tranzacție: `0x97d99bc7729211111a21b12c933c949d4f31684f1d6954ff477d0477538ff017`
+2. Tranzacția este apoi transmisă în rețea și inclusă într-un grup cu ​​multe alte tranzacții.
+3. Un miner trebuie să vă aleagă tranzacția și să o includă într-un bloc pentru a o verifica și a o considera „reușită”.
+   - Este posibil să așteptați în această etapă, dacă rețeaua este ocupată și miner-ii nu sunt în măsură să țină pasul.
+4. Tranzacția dvs. va primi „confirmări”. Numărul de confirmări reprezintă numărul de blocuri create de la blocul care a inclus tranzacția dumneavoastră. Cu cât acest număr este mai mare, cu atât mai mare este certitudinea că rețeaua a procesat și a recunoscut tranzacția.
+   - Blocurile recente pot fi reorganizate, lăsând impresia că tranzacția nu a avut succes; cu toate acestea, tranzacția poate fi încă validă, dar inclusă într-un alt bloc.
+   - Probabilitatea unei reorganizări scade cu fiecare bloc minat ulterior, în sensul că, pe măsură ce numărul de confirmări este mai mare, tranzacția este cu atât mai imuabilă.
 
 ## O demonstrație vizuală {#a-visual-demo}
 
-Privește cum Austin te ghidează prin tranzacții, gaz și minerit. <iframe width="100%" height="315" src="https://www.youtube.com/embed/er-0ihqFQB0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+Urmăriți-l pe Austin cum vă prezintă tranzacțiile, gazele și mineritul.
+
+<YouTube id="er-0ihqFQB0" />
+
+## Tranzacția plic tipizată {#typed-transaction-envelope}
+
+Ethereum avea inițial un singur format pentru tranzacții. Fiecare tranzacție conținea un nonce, gas price, gas limit, to address, value, data, v, r, și s. Aceste câmpuri sunt codificate RLP, ca să arate cam așa:
+
+`RLP([nonce, gasPrice, gasLimit, to, value, data, v, r, s])`
+
+Ethereum a evoluat pentru a suporta mai multe tipuri de tranzacții care permită implementarea de noi caracteristici, cum ar fi listele de acces și [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md), fără ca acestea să afecteze formatele tradiționale de tranzacții.
+
+[EIP-2718: Tranzacția plic tipizată (Typed Transaction Envelope)](https://eips.ethereum.org/EIPS/eip-2718) definește un tip de tranzacție care este un plic pentru viitoarele tipuri de tranzacții.
+
+EIP-2718 este un nou plic generalizat pentru tranzacții tipizate. În noul standard, tranzacțiile sunt interpretate ca:
+
+`TransactionType || TransactionPayload`
+
+Unde câmpurile sunt definite astfel:
+
+- `TransactionType` - un număr între 0 și 0x7f, pentru un total de 128 de tipuri de tranzacții posibile.
+- `TransactionPayload` - o matrice arbitrară de octeți definită de tipul de tranzacție.
 
 ## Referințe suplimentare {#further-reading}
 
-_Cunoști o resursă comunitară care te-a ajutat? Editează această pagină și adaug-o!_
+- [EIP-2718: Tranzacție plic tipizată](https://eips.ethereum.org/EIPS/eip-2718)
+
+_Cunoașteți o resursă a comunității care v-a ajutat? Editaţi această pagină și adăugaţi-o!_
 
 ## Subiecte corelate {#related-topics}
 
 - [Conturi](/developers/docs/accounts/)
 - [Mașină virtuală Ethereum (EVM)](/developers/docs/evm/)
 - [Gaz](/developers/docs/gas/)
-- [Minarea](/developers/docs/consensus-mechanisms/pow/mining/)
+- [Minare](/developers/docs/consensus-mechanisms/pow/mining/)

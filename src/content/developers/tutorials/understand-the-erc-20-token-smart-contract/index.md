@@ -37,7 +37,7 @@ interface IERC20 {
 }
 ```
 
-Here is a line-by-line explainer of what every function is for. After this we’ll present a simple implementation of the a ERC-20 token.
+Here is a line-by-line explainer of what every function is for. After this we’ll present a simple implementation of the ERC-20 token.
 
 ## Getters {#getters}
 
@@ -45,7 +45,7 @@ Here is a line-by-line explainer of what every function is for. After this we’
 function totalSupply() external view returns (uint256);
 ```
 
-Returns the amount of tokens in existence. This function is a getter and does not modify the state of the contract. Keep in mind that there is no floats in Solidity. Therefore most tokens adopt 18 decimals and will return the total supply and other results as followed 1000000000000000000 for 1 token. Not every tokens has 18 decimals and this is something you really need to watch for when dealing with tokens.
+Returns the amount of tokens in existence. This function is a getter and does not modify the state of the contract. Keep in mind that there are no floats in Solidity. Therefore most tokens adopt 18 decimals and will return the total supply and other results as followed 1000000000000000000 for 1 token. Not every token has 18 decimals and this is something you really need to watch for when dealing with tokens.
 
 ```solidity
 function balanceOf(address account) external view returns (uint256);
@@ -57,7 +57,7 @@ Returns the amount of tokens owned by an address (`account`). This function is a
 function allowance(address owner, address spender) external view returns (uint256);
 ```
 
-The ERC-20 standard allow an address to give an allowance to another address to be able to retrieve tokens from it. This getter returns the remaining number of tokens that the `spender` will be allowed to spend on behalf of `owner`. This function is a getter and does not modify the state of the contract and should return 0 by default.
+The ERC-20 standard allows an address to give an allowance to another address to be able to retrieve tokens from it. This getter returns the remaining number of tokens that the `spender` will be allowed to spend on behalf of `owner`. This function is a getter and does not modify the state of the contract and should return 0 by default.
 
 ## Functions {#functions}
 
@@ -100,7 +100,7 @@ This event is emitted when the amount of tokens (`value`) is approved by the `ow
 Here is the most simple code to base your ERC-20 token from:
 
 ```solidity
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 interface IERC20 {
 
@@ -125,21 +125,14 @@ contract ERC20Basic is IERC20 {
     uint8 public constant decimals = 18;
 
 
-    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
-    event Transfer(address indexed from, address indexed to, uint tokens);
-
-
     mapping(address => uint256) balances;
 
     mapping(address => mapping (address => uint256)) allowed;
 
-    uint256 totalSupply_;
-
-    using SafeMath for uint256;
+    uint256 totalSupply_ = 10 ether;
 
 
-   constructor(uint256 total) public {
-	totalSupply_ = total;
+   constructor() {
 	balances[msg.sender] = totalSupply_;
     }
 
@@ -153,8 +146,8 @@ contract ERC20Basic is IERC20 {
 
     function transfer(address receiver, uint256 numTokens) public override returns (bool) {
         require(numTokens <= balances[msg.sender]);
-        balances[msg.sender] = balances[msg.sender].sub(numTokens);
-        balances[receiver] = balances[receiver].add(numTokens);
+        balances[msg.sender] = balances[msg.sender]-numTokens;
+        balances[receiver] = balances[receiver]+numTokens;
         emit Transfer(msg.sender, receiver, numTokens);
         return true;
     }
@@ -173,28 +166,13 @@ contract ERC20Basic is IERC20 {
         require(numTokens <= balances[owner]);
         require(numTokens <= allowed[owner][msg.sender]);
 
-        balances[owner] = balances[owner].sub(numTokens);
-        allowed[owner][msg.sender] = allowed[owner][msg.sender].sub(numTokens);
-        balances[buyer] = balances[buyer].add(numTokens);
+        balances[owner] = balances[owner]-numTokens;
+        allowed[owner][msg.sender] = allowed[owner][msg.sender]-numTokens;
+        balances[buyer] = balances[buyer]+numTokens;
         emit Transfer(owner, buyer, numTokens);
         return true;
     }
 }
-
-library SafeMath {
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-      assert(b <= a);
-      return a - b;
-    }
-
-    function add(uint256 a, uint256 b) internal pure returns (uint256) {
-      uint256 c = a + b;
-      assert(c >= a);
-      return c;
-    }
-}
 ```
-
-This implementation uses the SafeMath library. Read our tutorial about it if you’d like to learn [how the library helps you with handling overflows and underflows in your smart contracts](https://ethereumdev.io/using-safe-math-library-to-prevent-from-overflows/).
 
 Another excellent implementation of the ERC-20 token standard is the [OpenZeppelin ERC-20 implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20).

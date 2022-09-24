@@ -12,7 +12,7 @@ incomplete: true
 
 </div>
 
-使用以太坊来创建去中心化应用程序（或称“dapp”），发挥加密货币和区块链技术的优势。 这些 dapp 可以是值得信赖的，也即一旦被部署到以太坊上，它们将总是按程序运行。 这些应用程序可以控制数字资产，以便创造新的金融应用； 它们可以是去中心化的，也即没有任何单一实体或个人能够控制它们，而且它们几乎是不可能被审查的。
+使用以太坊来创建去中心化应用程序 (或称“dapp”)，发挥加密货币和区块链技术的优势。 这些 dapp 可以是值得信赖的，也即一旦被部署到以太坊上，它们将总是按程序运行。 这些应用程序可以控制数字资产，以便创造新的金融应用； 它们可以是去中心化的，也即没有任何单一实体或个人能够控制它们，而且它们几乎是不可能被审查的。
 
 在以太坊顶部构建去中心化应用，并使用 Delphi 编程语言与智能合约交互！
 
@@ -41,15 +41,16 @@ incomplete: true
 - [3 分钟的智能合约和 Delphi - 第 1 部分](https://medium.com/@svanas/a-3-minute-smart-contract-and-delphi-61d998571d)
 - [3 分钟的智能合约和 Delphi - 第 2 部分](https://medium.com/@svanas/a-3-minute-smart-contract-and-delphi-part-2-446925faa47b)
 
-## 面向中等程度者的文章 {#intermediate-articles}
+## 面向中等程度用户的文章 {#intermediate-articles}
 
 - [在 Delphi 中生成一个以太坊认证的消息签名](https://medium.com/@svanas/generating-an-ethereum-signed-message-signature-in-delphi-75661ce5031b)
 - [使用 Delphi 交易以太币](https://medium.com/@svanas/transferring-ether-with-delphi-b5f24b1a98a4)
 - [使用 Delphi 交易基于 ERC-20 的代币](https://medium.com/@svanas/transferring-erc-20-tokens-with-delphi-bb44c05b295d)
 
-## 面向高等程度者的使用模式 {#advanced-use-patterns}
+## 面向高等程度用户的使用模式 {#advanced-use-patterns}
 
-- [Delphi 和以太坊域名服务 (ENS)](https://medium.com/@svanas/delphi-and-ethereum-name-service-ens-4443cd278af7)
+- [Delphi 和以太坊域名服务](https://medium.com/@svanas/delphi-and-ethereum-name-service-ens-4443cd278af7)
 - [QuikNode、以太坊和 Delphi](https://medium.com/@svanas/quiknode-ethereum-and-delphi-f7bfc9671c23)
+- [Delphi 和以太坊黑暗森林](https://svanas.medium.com/delphi-and-the-ethereum-dark-forest-5b430da3ad93)
 
-想要获取更多的资源？ 请浏览 [ethereum.org/developers](/developers/)。
+想要获取更多的资源？ 请查看 [ethereum.org/developers](/developers/)。

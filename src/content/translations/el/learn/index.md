@@ -6,7 +6,7 @@ sidebar: true
 
 # Μάθετε για το Ethereum {#learn-about-ethereum}
 
-**Καλώς ήρθατε στο [ethereum.org/el/learn ](/el/learn/), μια συλλογή πληροφοριών που θα σας βοηθήσουν να μάθετε περισσότερα για το Ethereum.** Αυτή η σελίδα περιλαμβάνει τεχνικά και μη τεχνικά άρθρα, οδηγούς και άλλα βοηθήματα. Εάν είστε εντελώς καινούργιοι στο Ethereum, [ προτείνουμε να ξεκινήσετε εδώ ](/el/what-is-ethereum/).
+**Καλώς ήρθατε στο [ethereum.org/el/learn](/el/learn/), μια συλλογή πληροφοριών που θα σας βοηθήσουν να μάθετε περισσότερα για το Ethereum.** Αυτή η σελίδα περιλαμβάνει τεχνικά και μη τεχνικά άρθρα, οδηγούς και άλλα βοηθήματα. Εάν είστε εντελώς καινούργιοι στο Ethereum, [προτείνουμε να ξεκινήσετε εδώ](/el/what-is-ethereum/).
 
 Ακολουθούν μερικά εξαιρετικά κείμενα:
 
@@ -42,7 +42,7 @@ sidebar: true
 
 - [How does Ethereum work, anyway?](https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369) _Sept 27, 2017 - Preethi Kasireddy_
 - [A Gentle Introduction to Ethereum](https://bitsonblocks.net/2016/10/02/gentle-introduction-ethereum/) _Oct 2, 2016 - Antony Lewis_
-- [Introduction to Blockchain through Cryptoeconomics - Part 1](https://blockchainatberkeley.blog/introduction-to-blockchain-through-cryptoeconomics-part-1-bitcoin-369f245067f9) _Jan 26, 2018 - Zubin Koticha_
+- [Introduction to Blockchain through Cryptoeconomics - Part 1](https://medium.com/blockchain-at-berkeley/introduction-to-blockchain-through-cryptoeconomics-part-1-bitcoin-369f245067f9) _Jan 26, 2018 - Zubin Koticha_
 - [Introduction to Blockchain through Cryptoeconomics - Part 2](https://medium.com/mechanism-labs/introduction-to-bitcoin-through-cryptoeconomics-part-2-proof-of-work-and-nakamoto-consensus-1252f6a6c012) _July 19, 2018 - Zubin Koticha_
 
 ## Smart Contracts {#smart-contracts}
@@ -51,13 +51,13 @@ sidebar: true
 
 - Θέλετε να μάθετε πώς να προγραμματίζετε στο Ethereum με smart contracts; [ethereum.org/el/developers](/el/developers/)
 
-## Απόδειξη της Εργασίας ("Proof of Work") και Εξόρυξη ("Mining") {#proof-of-work-and-mining}
+## Απόδειξη της Εργασίας ("proof-of-work") και Εξόρυξη ("Mining") {#proof-of-work-and-mining}
 
 Το Ethereum χρησιμοποιεί επί του παρόντος ένα σύστημα που ονομάζεται "Απόδειξη της Εργασίας". Αυτό επιτρέπει στο δίκτυο του Ethereum να συμφωνήσει για την κατάσταση όλων των πληροφοριών που καταγράφονται στο blockchain του Ethereum και ταυτόχρονα εμποδίζει οικονομικές επιθέσεις συγκεκριμένου τύπου.
 
 - [What does it mean to mine Ethereum?](https://docs.ethhub.io/using-ethereum/mining/) _Ενημερώνεται συχνά - Ethhub_
 
-Στο ETH 2.0, το Ethereum θα μετακινηθεί σε ένα διαφορετικό σύστημα που ονομάζεται " Απόδειξη του Πονταρίσματος" (“Proof of Stake”). [Διαβάστε περισσότερα για το ETH 2.0 παρακάτω](#eth-2-0).
+Στο ETH 2.0, το Ethereum θα μετακινηθεί σε ένα διαφορετικό σύστημα που ονομάζεται " Απόδειξη του Πονταρίσματος" (“proof-of-stake”). [Διαβάστε περισσότερα για το ETH 2.0 παρακάτω](#consensus-layer-upgrades).
 
 ## Πελάτες και κόμβοι {#clients-and-nodes}
 
@@ -70,7 +70,7 @@ sidebar: true
 
 Υπάρχουν πολλές προσπάθειες σε εξέλιξη για να καταστεί το Ethereum πιο "κλιμακούμενο" βελτιώνοντας την ταχύτητα και τη συνολική απόδοση συναλλαγών. Γενικά, αυτές ταξινομούνται σε λύσεις "Layer 1" και "Layer 2".
 
-Το "Layer 1" αναφέρεται στη βελτίωση του βασικού πρωτοκόλλου του Ethereum. Το κύριο έργο για τη βελτίωση του βασικού πρωτοκόλλου του Ethereum είναι το [ ETH 2.0 ](#eth-2-0).
+Το "Layer 1" αναφέρεται στη βελτίωση του βασικού πρωτοκόλλου του Ethereum. Το κύριο έργο για τη βελτίωση του βασικού πρωτοκόλλου του Ethereum είναι το [ETH 2.0](#consensus-layer-upgrades).
 
 Το "Layer 2" αναφέρεται σε τεχνολογίες που χτίζονται πάνω στο βασικό πρωτόκολλο του Ethereum, επιτρέποντας μεγαλύτερη κλιμάκωση χωρίς να διακυβεύεται η ασφάλεια. Υπάρχουν επίσης τεχνολογίες εκτός αλυσίδας, όπως οι πλευρικές αλυσίδες, οι οποίες επιτρέπουν μεγαλύτερη κλιμάκωση, αποδεχόμενες όμως ένα διαφορετικό επίπεδο ασφαλείας.
 
@@ -93,7 +93,7 @@ sidebar: true
 - [Understanding Plasma](https://education.district0x.io/general-topics/understanding-ethereum/understanding-plasma/) _District0x_
 - [Learn Plasma - A learning resource for the Plasma framework](https://www.learnplasma.org/en/)
 
-## ETH 2.0 {#eth-2-0}
+## ETH 2.0 {#consensus-layer-upgrades}
 
 Το ETH 2.0 (επίσης γνωστό και ως "Serenity") αναφέρεται στην επόμενη σημαντική αναβάθμιση του βασικού πρωτοκόλλου του Ethereum. Συνδυάζει αρκετές βελτιώσεις στο βασικό πρωτόκολλο του Ethereum ("Layer 1").
 
@@ -103,11 +103,11 @@ sidebar: true
 - [Sharding](https://docs.ethhub.io/ethereum-roadmap/ethereum-2.0/sharding/) _Ενημερώνεται συχνά - EthHub_
 - [ETH 2.0 - The Road to Scaling Ethereum - Vitalik Buterin](https://youtu.be/kCVpDrlVesA) _(Video) November, 2018 - YouTube_
 
-## ETH 1.x {#eth-1x}
+## ETH 1.x {#execution-layer-upgrades}
 
 Το ETH 1.x είναι το όνομα ενός συνόλου αναβαθμίσεων στο υπάρχον πρωτόκολλο του Ethereum. Ο στόχος είναι να συνεχίσει να βελτιώνεται και να διατηρείται το Ethereum όσο το ETH 2.0 αναπτύσσεται και υλοποιείται.
 
-Για περισσότερες πληροφορίες, ανατρέξτε στη [ σελίδα εξήγησης του EthHub σχετικά με το ETH 1.x ](https://docs.ethhub.io/ethereum-roadmap/ethereum-1.x/)
+Για περισσότερες πληροφορίες, ανατρέξτε στη [σελίδα εξήγησης του EthHub σχετικά με το ETH 1.x](https://docs.ethhub.io/ethereum-roadmap/ethereum-1.x/)
 
 ## Κρυπτοοικονομικά {#cryptoeconomics}
 

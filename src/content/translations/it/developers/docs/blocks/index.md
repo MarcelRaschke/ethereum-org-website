@@ -3,21 +3,20 @@ title: Blocchi
 description: "Panoramica dei blocchi nella blockchain Ethereum: struttura dati, a cosa servono e come sono fatti."
 lang: it
 sidebar: true
+preMergeBanner: true
 ---
 
 I blocchi sono un insieme di transazioni che contengono un hash del blocco precedente nella catena. Per questo motivo, sono collegati l'uno all'altro nella catena, perché gli hash vengono calcolati crittograficamente dai dati del blocco. Questi impedisce anche le frodi, perché un cambiamento in qualsiasi blocco nella cronologia invaliderebbe tutti i blocchi successivi, dato che gli hash successivi cambierebbero e tutti coloro che eseguono la blockchain se ne accorgerebbero.
 
 ## Prerequisiti {#prerequisites}
 
-Quello dei blocchi è un argomento piuttosto basico. Per aiutarti però a comprendere meglio questa pagina, consigliamo di leggere prima [Account](/en/developers/docs/accounts/), [Transazioni](/en/developers/docs/transactions/) e la nostra [introduzione a Ethereum](/en/developers/docs/intro-to-ethereum/).
-
-<!--The content below was provided by Brian Gu with exception of "what's in a block"-->
+Quello dei blocchi è un argomento piuttosto basico. Ad ogni modo, per comprendere meglio questa pagina, consigliamo innanzi tutto di leggere [Account](/developers/docs/accounts/), [Transazioni](/developers/docs/transactions/) e la nostra [introduzione a Ethereum](/developers/docs/intro-to-ethereum/).
 
 ## Perché i blocchi? {#why-blocks}
 
-Per assicurare che tutti i partecipanti della rete Ethereum siano sincronizzati e concordino sulla cronologia esatta delle transazioni, raggruppiamo le transazioni in blocchi. Significa che decine (o centinaia) di transazioni vengono inviate, approvate e sincronizzate in una volta sola.
+Per far sì che tutti i partecipanti della rete Ethereum siano sincronizzati e concordino sulla cronologia esatta delle transazioni, le transazioni vengono raggruppate in blocchi. Significa che decine (o centinaia) di transazioni vengono inviate, approvate e sincronizzate in una volta sola.
 
-![Diagramma che mostra una transazione in un blocco che causa cambiamenti di stato](./tx-block.png) _Diagramma adattato dall' [illustrazione dell'Ethereum EVM](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)_
+![Diagramma che mostra una transazione in un blocco che provoca cambiamenti di stato](./tx-block.png) _Diagramma adattato da [Ethereum EVM illustrated](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)_
 
 Scaglionando gli invii, diamo a tutti i partecipanti della rete abbastanza tempo per giungere al consenso: anche se arrivano decine di richieste di transazione al secondo, i blocchi su Ethereum vengono inviati più o meno ogni quindici secondi.
 
@@ -27,39 +26,46 @@ Per preservare la cronologia delle transazioni, i blocchi sono ordinati in modo 
 
 Dopo essere stato realizzato (si parla di mining) da alcuni miner della rete, un blocco viene propagato al resto della rete; tutti i nodi vengono aggiunti al blocco alla fine della relativa blockchain e il processo di mining continua. Il processo esatto di costruzione dei blocchi (mining) e il processo di invio/consenso è attualmente specificato nel protocollo di Ethereum "Proof of work".
 
-### Demo visiva {#a-visual-demo} <iframe width="100%" height="315" src="https://www.youtube.com/embed/_160oMzblY8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+### Demo visiva {#a-visual-demo}
+
+<YouTube id="_160oMzblY8" />
 
 ## Protocollo Proof of Work {#proof-of-work-protocol}
 
-Proof of work significa:
+Il significato di proof of work è il seguente:
 
-- I nodi di mining devono impegnare una quantità variabile ma consistente di energia, tempo e potenza di calcolo per produrre un "certificato di legittimità" per il blocco che propongono alla rete. Questo aiuta a proteggere la rete da spam o attacchi DoS, tra le altre cose \*, perché questi certificati sono costosi da produrre.
-- Gli altri miner a cui viene inviata notifica di un nuovo blocco con un certificato di legittimità valido devono \*accettare il nuovo blocco come blocco successivo canonico della blockchain.
-- La quantità esatta di tempo richiesta da ogni miner per produrre questo certificato varia casualmente e con elevata frequenza. Questo assicura che sia improbabile* che due miner producano nello stesso momento convalide per un blocco successivo proposto; quando un miner produce e propaga un nuovo blocco certificato, c'è una relativa sicurezza che il blocco venga accettato dalla rete come blocco canonico successivo della blockchain, senza conflitto* (sebbene sia disponibile un protocollo per gestire i conflitti nel caso in cui due catene di blocchi certificati vengano prodotte praticamente simultaneamente).
+- I nodi di mining devono impegnare una quantità variabile ma consistente di energia, tempo e potenza di calcolo per produrre un "certificato di legittimità" per il blocco che propongono alla rete. Questo aiuta a proteggere la rete da spam, attacchi DoS e altro, perché questi certificati sono costosi da produrre.
+- Gli altri miner a cui viene inviata notifica di un nuovo blocco con un certificato di legittimità valido devono accettarlo come blocco successivo canonico della blockchain.
+- La quantità esatta di tempo richiesta da ogni miner per produrre questo certificato varia casualmente e con elevata frequenza. Ciò rende improbabile che due miner convalidino contemporaneamente un blocco successivo proposto; quando un miner produce e condivide un nuovo blocco certificato, c'è una relativa sicurezza che il blocco venga accettato dalla rete come blocco canonico successivo della blockchain, senza conflitti (sebbene sia disponibile un protocollo per gestire i conflitti nel caso in cui due catene di blocchi certificati vengano prodotte praticamente simultaneamente).
 
-[Maggiori informazioni sul mining](/en/developers/docs/consensus-mechanisms/pow/mining/)
+[Maggiori informazioni sul mining](/developers/docs/consensus-mechanisms/pow/mining/)
 
 ## Cosa c'è in un blocco? {#block-anatomy}
 
-- Timestamp - ora di mining del blocco.
-- Numero del blocco - lunghezza della blockchain indicata in numero di blocchi.
-- Difficoltà - lavoro necessario per il mining del blocco.
-- mixHash - identificatore univoco del blocco.
-- Hash padre - identificatore univoco del blocco precedente (questo è il modo in cui i blocchi sono collegati in una catena).
-- Elenco delle transazioni - transazioni incluse in un blocco.
-- Radice stato - intero stato del sistema: contiene saldi degli account, archiviazione dei contratti, codice dei contratti e nonce degli account.
-- Nonce - hash che, se combinato con il mixHash, prova che il blocco ha superato la [proof of work](/developers/docs/consensus-mechanisms/pow/).
+- `timestamp` - l'ora in cui il blocco è stato minato.
+- `blockNumber` – la lunghezza della blockchain misurata in blocchi.
+- `baseFeePerGas` - la commissione minima in gas richiesta perché una transazione venga inclusa nel blocco.
+- `difficulty` – la quantità di lavoro necessaria per il mining del blocco.
+- `mixHash` – un identificativo unico per il blocco in questione.
+- `parentHash` - l'identificativo unico per il blocco precedente (è il modo con cui i blocchi sono collegati tra loro in una catena).
+- `transactions` – le transazioni incluse nel blocco.
+- `stateRoot` – l'intero stato del sistema: i saldi degli account, l'archiviazione ed il codice del contratto e i nonce dell'account.
+- `nonce` – un hash che, in combinazione con il mixHash, prova che il blocco ha superato la [Proof of Work](/developers/docs/consensus-mechanisms/pow/).
 
-## Dimensione del blocco {#block-size}
+## Tempo di blocco {#block-time}
 
-Un'ultima nota importante: i blocchi stessi sono limitati in termini di dimensioni. Ogni blocco ha un limite di carburante, impostato dalla rete e dai miner: la quantità totale di carburante utilizzato da tutte le transazioni nel blocco deve essere inferiore al limite di carburante del blocco. Questo è importante perché evita che i blocchi siano arbitrariamente grandi. Se i blocchi potessero essere arbitrariamente grandi, i nodi completi meno performanti, gradualmente, non riuscirebbero più stare al passo con la rete per via dei requisiti di spazio e velocità. Il limite di carburante per blocco al blocco 0 era stato inizializzato a 5000; ogni miner che esegue il mining di un nuovo blocco può modificare il limite di carburante di circa lo 0,1% al massimo, in entrambe le direzioni, rispetto al limite di carburante del blocco padre. Il limite di carburante a novembre 2018 si aggirava intorno a 8.000.000.
+Il tempo di blocco si riferisce al tempo necessario per minare un nuovo blocco. In Ethereum, il tempo di blocco medio è compreso tra 12 e 14 secondi e viene valutato dopo ogni blocco. Il tempo di blocco previsto è impostato come una costante a livello di protocollo ed è usato per proteggere la sicurezza della rete quando i miner aumentano la potenza di calcolo. Il tempo di blocco medio viene confrontato con il tempo di blocco previsto e, se il tempo medio risulta più alto, viene diminuita la difficoltà nell'intestazione del blocco. Se invece il tempo di blocco medio è inferiore, la difficoltà nell'intestazione del blocco viene aumentata.
 
-## Letture consigliate {#further-reading}
+## Dimensioni del blocco {#block-size}
 
-_Conosci una risorsa della community che ti è stata utile? Modifica questa pagina e aggiungila!_
+Un'ultima nota importante: i blocchi stessi sono limitati in termini di dimensioni. Ogni blocco ha una dimensione prevista di 15 milioni di gas, ma la dimensione dei blocchi aumenta o diminuisce in base alla domanda della rete, fino al limite massimo di 30 milioni di gas del blocco (2 volte la dimensione target del blocco). L'ammontare totale di carburante usato da tutte le transazioni nel blocco deve essere inferiore al limite di carburante del blocco. Questo è importante perché evita che i blocchi siano arbitrariamente grandi. Se i blocchi potessero essere arbitrariamente grandi, gradualmente i nodi completi meno performanti non riuscirebbero più stare al passo con la rete per via dei requisiti di spazio e velocità.
+
+## Lettura consigliate {#further-reading}
+
+_Conosci una risorsa pubblica che ti è stata utile? Modifica questa pagina e aggiungila!_
 
 ## Argomenti correlati {#related-topics}
 
-- [Mining](/en/developers/docs/consensus-mechanisms/pow/mining/)
-- [Transazioni](/en/developers/docs/transactions/)
-- [Carburante](/en/developers/docs/gas/)
+- [Mining](/developers/docs/consensus-mechanisms/pow/mining/)
+- [Transazioni](/developers/docs/transactions/)
+- [Carburante](/developers/docs/gas/)

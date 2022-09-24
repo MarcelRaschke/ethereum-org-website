@@ -14,7 +14,7 @@ Használd az Ethereumot decentraizált alkalmazások (avagy "dappok") fejleszté
 
 **Tedd meg az első lépést, hogy integráld a Go-t Ethereummal**
 
-Szükséged van egy méginkább kezdőknek szóló alapozóra? Tekintsd meg az [ethereum.org/learn](/en/learn/) oldalt vagy a [ethereum.org/developers](/en/developers/) oldalt.
+Szükséged van egy méginkább kezdőknek szóló alapozóra? Tekintsd meg az [ethereum.org/learn](/learn/) oldalt vagy a [ethereum.org/developers](/developers/) oldalt.
 
 - [Blokklánc ismertetése](https://kauri.io/article/d55684513211466da7f8cc03987607d5/blockchain-explained)
 - [Okosszerződések értelmezése](https://kauri.io/article/e4f66c6079e74a4a9b532148d3158188/ethereum-101-part-5-the-smart-contract)
@@ -34,18 +34,18 @@ Szükséged van egy méginkább kezdőknek szóló alapozóra? Tekintsd meg az [
 ## Haladó cikkek és dokumentációk {#intermediate-articles-and-docs}
 
 - [Go Ethereum Documentation](https://geth.ethereum.org/docs/) - _A hivatalos Ethereum Golang dokumentáció_
-- [Turbo-Geth Programmer's Guide](https://github.com/ledgerwatch/turbo-geth/blob/master/docs/programmers_guide/guide.md) - _Illusztrált útmutató, mely bemutatja az állapot fát, többszöri bizonyítékokat és a tranzakció feldolgozást_
-- [Turbo-Geth és az állapot nélküli Ethereum](https://youtu.be/3-Mn7OckSus?t=394) - _2020 Ethereum Közösségi Konferenica (EthCC 3)_
-- [Turbo-Geth: Ethereum kliensek optimalizálása](https://www.youtube.com/watch?v=CSpc1vZQW2Q) - _2018 Devcon 4_
+- [Erigon Programmer's Guide](https://github.com/ledgerwatch/erigon/blob/devel/docs/programmers_guide/guide.md) - _Illusztrált útmutató, mely bemutatja az állapot fát, többszöri bizonyítékokat és a tranzakció feldolgozást_
+- [Erigon és az állapot nélküli Ethereum](https://youtu.be/3-Mn7OckSus?t=394) - _2020 Ethereum Közösségi Konferenica (EthCC 3)_
+- [Erigon: Ethereum kliensek optimalizálása](https://www.youtube.com/watch?v=CSpc1vZQW2Q) - _2018 Devcon 4_
 - [Go Ethereum GoDoc](https://godoc.org/github.com/ethereum/go-ethereum)
-- [Egy dapp készítése Go-ban Geth-tel](https://kauri.io/article/60a36c1b17d645939f63415218dc24f9/creating-a-dapp-in-go-with-geth)
+- [Egy dapp készítése Go-ban Geth-tel](https://kauri.io/#collections/A%20Hackathon%20Survival%20Guide/creating-a-dapp-in-go-with-geth/)
 - [Munka Ethereum Privát Hálózaton Golang-gel és Geth-tel](https://myhsts.org/tutorial-learn-how-to-work-with-ethereum-private-network-with-golang-with-geth.php)
 - [Solidity szerződések unit test-je Ethereumon Go-val](https://medium.com/coinmonks/unit-testing-solidity-contracts-on-ethereum-with-go-3cc924091281)
 - [Gyors referencia a Geth könyvtárként való használatára](https://medium.com/coinmonks/web3-go-part-1-31c68c68e20e)
 
 ## Fejlett használati minták {#advanced-use-patterns}
 
-- [A GETH szimulált Backend](https://kauri.io/article/6285c9692883411aa041b6b970405a17/v1/the-geth-simulated-backend)
+- [A GETH szimulált Backend](https://kauri.io/#collections/An%20ethereum%20test%20toolkit%20in%20Go/the-geth-simulated-backend/#_top)
 - [Blockchain-as-a-Service appok Ethereum és Quorum használatával](https://blockchain.dcwebmakers.com/blockchain-as-a-service-apps-using-ethereum-and-quorum.html)
 - [Elosztott tárhely IPDS és Swarm Ethereum blokklánc alkalmazásokban](https://blockchain.dcwebmakers.com/work-with-distributed-storage-ipfs-and-swarm-in-ethereum.html)
 - [Mobile Clients: Library-k és Inproc Ethereum csomópontok](https://github.com/ethereum/go-ethereum/wiki/Mobile-Clients:-Libraries-and-Inproc-Ethereum-Nodes)
@@ -55,7 +55,7 @@ Szükséged van egy méginkább kezdőknek szóló alapozóra? Tekintsd meg az [
 
 - [Geth / Go Ethereum](https://github.com/ethereum/go-ethereum) - _Az Ethereum protokoll hivatalos Go implementációja_
 - [Go Ethereum Code Analysis](https://github.com/ZtesoftCS/go-ethereum-code-analysis) - _Go Ethereum forráskód áttekintése és elemzése_
-- [Turbo-Geth](https://github.com/ledgerwatch/turbo-geth) - _A Go Ethereum gyorsabb származéka_
+- [Erigon](https://github.com/ledgerwatch/erigon) - _A Go Ethereum gyorsabb származéka_
 - [Golem](https://github.com/golemfactory/golem) - _A Golem egy globális piacot teremt a számítási teljesítmény számára_
 - [Quorum](https://github.com/jpmorganchase/quorum) - _Egy engedélyköteles Ethereum implementáció, mely támogatja az adatvédelmet_
 - [Prysm](https://github.com/prysmaticlabs/prysm) - _Ethereum 'Serenity' 2.0 Go implementáció_
@@ -66,7 +66,7 @@ Szükséged van egy méginkább kezdőknek szóló alapozóra? Tekintsd meg az [
 - [Multi Geth](https://github.com/multi-geth/multi-geth) - _Az Ethereum hálózatok több fajtáját támogatja_
 - [Geth Light Client](https://github.com/zsfelfoldi/go-ethereum/wiki/Geth-Light-Client) - _Light Ethereum Subprotocol Geth implementációja_
 
-Még több anyagot keresel? Tekintsd meg az [ethereum.org/developers](/en/developers/) oldalt
+Még több anyagot keresel? Tekintsd meg az [ethereum.org/developers](/developers/) oldalt
 
 ## Go közösségi hozzájárulók {#go-community-contributors}
 

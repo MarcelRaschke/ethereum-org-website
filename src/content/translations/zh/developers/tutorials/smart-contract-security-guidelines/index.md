@@ -6,7 +6,7 @@ tags:
   - "solidity"
   - "智能合约"
   - "安全性"
-skill: 中级
+skill: intermediate
 lang: zh
 sidebar: true
 published: 2020-09-06
@@ -28,22 +28,22 @@ sourceUrl: https://github.com/crytic/building-secure-contracts/blob/master/devel
 - **数据模型和架构图**，包括合约的交互概述图和系统的状态转换图。 可以使用[Slither 打印机](https://github.com/crytic/slither/wiki/Printer-documentation)生成相关图示。
 - **完整的代码文档**, 可以为 Solidity 使用[Natspec 格式](https://solidity.readthedocs.io/en/develop/natspec-format.html)。
 
-### 链上与链下计算 {#on-chain-vs-off-chain-computation}
+### 链上计算与链下计算 {#on-chain-vs-off-chain-computation}
 
 - **保持尽可能多的链下代码。** 保持链上代码层的最小化。 用链下代码的方式对数据进行预处理，使链上验证变得简单。 是否需要已排序列表？ 在链下对列表进行排序，然后在链上只检查其顺序。
 
-### 可升级性 {#upgradeability}
+### 升级 {#upgradeability}
 
-我们在[我们的博客文章](https://blog.trailofbits.com/2018/09/05/contract-upgrade-anti-patterns/)中讨论了不同的升级解决方案。 在编写任何代码之前，请慎重选择是否支持可升级性。 该决定将影响您如何构建我们的代码。 总的来说，我们建议：
+我们在[我们的博客文章](https://blog.trailofbits.com/2018/09/05/contract-upgrade-anti-patterns/)中讨论了不同的升级解决方案。 在编写任何代码之前，请慎重选择是否支持可升级性。 该决定将影响您如何构建我们的代码。 一般来说，我们建议：
 
 - **优先考虑[合约迁移](https://blog.trailofbits.com/2018/10/29/how-contract-migration-works/)而不是可升级性。**迁移系统有许多与可升级系统相同的优点，不存在缺陷。
 - **使用数据分离模式而不是 delegatecallproxy 模式。**如果您的项目有明确的抽象分离，则使用数据分离的可升级性只需要进行一些调整。 delegatecallproxy 需要 EVM 专业知识，并且非常容易出错。
-- **在部署前记录迁移/升级程序。**如果您不得不在没有任何指导的情况下在压力下做出反应，您就会犯错。 写下要提前跟进的程序。 其中应包括：
-  - 开始新合约的调用
-  - 密钥存储位置以及如何访问它们
-  - 如何检查部署！ 开发和测试部署后脚本。
+- **在部署前记录迁移/升级程序。**如果您不得不在没有任何指导的情况下在压力下做出反应，您就会犯错。 提前写好要遵循的程序。 其中应包括：
+  - 启动新的智能合约的调用
+  - 密钥存放在哪里以及如何获取它们
+  - 如何检查部署！ 开发和测试部署后的脚本。
 
-## 实施准则 {#implementation-guidelines}
+## 实施指南 {#implementation-guidelines}
 
 **力求简洁。** 尽可能使用最简单的解决方案来实现您的目的。 所有的团队成员都应当能够理解解决方案。
 

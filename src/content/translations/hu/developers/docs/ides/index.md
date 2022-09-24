@@ -5,7 +5,7 @@ lang: hu
 sidebar: true
 ---
 
-Amikor egy [integrált fejlesztői környezet (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) felállításáról van szó, az Ethereumon történő fejlesztés hasonló bármely más szoftver projekthez. Sok lehetőség közül lehet választani, így végül válaszd azt, mely a legjobban megfelel a preferenciáidnak.
+Amikor egy [integrált fejlesztői környezet (IDE)](https://wikipedia.org/wiki/Integrated_development_environment) felállításáról van szó, az Ethereumon történő fejlesztés hasonló bármely más szoftver projekthez. Sok lehetőség közül lehet választani, így végül válaszd azt, mely a legjobban megfelel a preferenciáidnak.
 
 ## Web alapú IDE-k {#web-based-ides}
 
@@ -27,7 +27,6 @@ A legtöbb megalapozott IDE-nek vannak beépített pluginjai, melyek elősegíti
 **Visual Studio Code -** **_Professzionális cross-platform IDE hivatalos Ethereum támogatással._**
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 - [Azure Blockchain Workbench](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-workbench?tab=Overview)
 - [Kód minták](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/readme.md)
 - [GitHub](https://github.com/microsoft/vscode)

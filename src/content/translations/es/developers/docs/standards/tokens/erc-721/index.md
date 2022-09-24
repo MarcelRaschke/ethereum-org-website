@@ -15,13 +15,13 @@ Una ficha no funcional (NFT) se utiliza para identificar algo o a alguien de una
 
 El ERC-721 introduce una norma para NFT, en otras palabras, este tipo de ficha es único y puede tener un valor diferente que otra ficha del mismo contrato inteligente, tal vez debido a su antigüedad, rareza o incluso a algo como su visualidad. Espera, ¿visual?
 
-¡Sí! Todos los NFT tienen una variable `uint256` llamada `tokenId`, así para cualquier Contrato ERC-721, el par `dirección del contrato, uint256 tokenId` debe ser único globalmente. Digo que una dapp puede tener un "convertidor" que usa el `tokenId` como entrada y produce una imagen de algo fresco, como zombies, armas, habilidades o increíbles gatitos.
+¡Sí! Todos los NFT tienen una variable `uint256` llamada `tokenId`, así para cualquier Contrato ERC-721, el par `dirección del contrato, uint256 tokenId` debe ser único globalmente. Dicho esto, un dApp puede tener un "convertidor" que utilice el `tokenId` como entrada y produzca una imagen de algo genial, como zombies, armas, habilidades o gatitos increíbles.
 
-## Requisitos previos {#prerequisites}
+## Prerrequisitos {#prerequisites}
 
 - [Cuentas](/developers/docs/accounts/)
 - [Contratos inteligentes](/developers/docs/smart-contracts/)
-- [Estándares de token](/developers/docs/standards/tokens/)
+- [Estándares de tokens](/developers/docs/standards/tokens/)
 
 ## Cuerpo {#body}
 
@@ -57,7 +57,7 @@ De [EIP-721](https://eips.ethereum.org/EIPS/eip-721):
 
 ### Ejemplos {#web3py-example}
 
-Vamos a ver la importancia de un estándar para que inspeccionemos fácilmente cualquier contrato de token de ERC-721 en Ethereum. Sólo necesitamos la Interfaz binaria de aplicaciones de contrato (ABI) para crear una interfaz a cualquier Token ERC-721. Como puedes ver a continuación, usaremos un ABI simplificado, para que sea un ejemplo de fricción baja.
+Vamos a ver la importancia de un estándar para que inspeccionemos fácilmente cualquier contrato de token de ERC-721 en Ethereum. Sólo necesitamos la Interfaz binaria de aplicaciones de contrato (ABI) para crear una interfaz a cualquier Token ERC-721. Como puedes ver a continuación, usaremos una ABI simplificada, para que sea un ejemplo de fricción bajo.
 
 #### Ejemplo de Web3.py {#web3py-example}
 
@@ -68,106 +68,106 @@ $ pip install web3
 ```
 
 ```python
-from Web3 import Web3
-from web3.utils.events import get_event_data
+from web3 import Web3
+from web3._utils.events import get_event_data
 
 
-w3 = Web3(Web3.HTTPProvider("https://cloudflare-eth. om"))
+w3 = Web3(Web3.HTTPProvider("https://cloudflare-eth.com"))
 
-ck_token_addr = "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d" # Contrato de ventas de CryptoKitties
+ck_token_addr = "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d"    # CryptoKitties Contract
 
-acc_address = "0xb1690C08E213a35Ed9bAb7B318DE14420FB57d8C" # Subasta de ventas de CryptoKitties
+acc_address = "0xb1690C08E213a35Ed9bAb7B318DE14420FB57d8C"      # CryptoKitties Sales Auction
 
-# Este es un Contrato simplificado de aplicación binaria (ABI) de un Contrato ERC-721 NFT.
-# Sólo expondrá los métodos: balanceOf(address), name(), ownerOf(tokenId), symbol(), totalSupply()
+# This is a simplified Contract Application Binary Interface (ABI) of an ERC-721 NFT Contract.
+# It will expose only the methods: balanceOf(address), name(), ownerOf(tokenId), symbol(), totalSupply()
 simplified_abi = [
     {
         'inputs': [{'internalType': 'address', 'name': 'owner', 'type': 'address'}],
-        'nombre': 'balanceOf',
-        'salidas': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}],
+        'name': 'balanceOf',
+        'outputs': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}],
         'payable': False, 'stateMutability': 'view', 'type': 'function', 'constant': True
     },
     {
         'inputs': [],
-        'nombre': 'nombre',
-        'salidas': [{'internalType': 'string', 'name': '', 'type': 'string'}],
-        'stateMutability': 'view', 'type': 'function', 'constant': Verdadero
+        'name': 'name',
+        'outputs': [{'internalType': 'string', 'name': '', 'type': 'string'}],
+        'stateMutability': 'view', 'type': 'function', 'constant': True
     },
     {
         'inputs': [{'internalType': 'uint256', 'name': 'tokenId', 'type': 'uint256'}],
         'name': 'ownerOf',
-        'salidas': [{'internalType': 'address', 'name': '', 'type': 'address'}],
-        'pagable': False, 'stateMutability': 'view', 'type': 'function', 'constant': True
+        'outputs': [{'internalType': 'address', 'name': '', 'type': 'address'}],
+        'payable': False, 'stateMutability': 'view', 'type': 'function', 'constant': True
     },
     {
         'inputs': [],
-        'nombre': 'símbolo',
-        'salidas': [{'internalType': 'string', 'name': '', 'type': 'string'}],
+        'name': 'symbol',
+        'outputs': [{'internalType': 'string', 'name': '', 'type': 'string'}],
         'stateMutability': 'view', 'type': 'function', 'constant': True
     },
     {
         'inputs': [],
         'name': 'totalSupply',
-        'salidas': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}],
-        'stateMutability': 'view', 'type': 'function', 'constant': Verdadero
+        'outputs': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}],
+        'stateMutability': 'view', 'type': 'function', 'constant': True
     },
 ]
 
 ck_extra_abi = [
     {
         'inputs': [],
-        'nombre': 'pregnantKitties',
-        'salidas': [{'name': '', 'type': 'uint256'}],
-        'pagable': False, 'stateMutability': 'view', 'type': 'function', 'constant': Verdadero
+        'name': 'pregnantKitties',
+        'outputs': [{'name': '', 'type': 'uint256'}],
+        'payable': False, 'stateMutability': 'view', 'type': 'function', 'constant': True
     },
     {
         'inputs': [{'name': '_kittyId', 'type': 'uint256'}],
-        'nombre': 'isPregnant',
+        'name': 'isPregnant',
         'outputs': [{'name': '', 'type': 'bool'}],
         'payable': False, 'stateMutability': 'view', 'type': 'function', 'constant': True
     }
 ]
 
-ck_contract = w3. th.contract(address=w3.toChecksumAddress(ck_token_addr), abi=simplified_abi+ck_extra_abi)
+ck_contract = w3.eth.contract(address=w3.toChecksumAddress(ck_token_addr), abi=simplified_abi+ck_extra_abi)
 name = ck_contract.functions.name().call()
 symbol = ck_contract.functions.symbol().call()
-kitties_auctions = ck_contract.functions.balanceOf(acc_address). all()
-print(f"{name} [{symbol}] NFT en subastas: {kitties_auctions}")
+kitties_auctions = ck_contract.functions.balanceOf(acc_address).call()
+print(f"{name} [{symbol}] NFTs in Auctions: {kitties_auctions}")
 
-pregnant_kitties = ck_contract.functions.pregnantKitties(). all()
+pregnant_kitties = ck_contract.functions.pregnantKitties().call()
 print(f"{name} [{symbol}] NFTs Pregnants: {pregnant_kitties}")
 
-# Utilizar el evento de transferencia ABI para obtener información sobre Kitties transferidos.
+# Using the Transfer Event ABI to get info about transferred Kitties.
 tx_event_abi = {
-    'anónimo': False,
-    'entradas': [
+    'anonymous': False,
+    'inputs': [
         {'indexed': False, 'name': 'from', 'type': 'address'},
         {'indexed': False, 'name': 'to', 'type': 'address'},
         {'indexed': False, 'name': 'tokenId', 'type': 'uint256'}],
-    'nombre': 'Transferir',
+    'name': 'Transfer',
     'type': 'event'
 }
 
-# Necesitamos la firma del evento para filtrar los registros
-event_signature = w3. ha3(text="Transfer(address,address,uint256)").hex()
+# We need the event's signature to filter the logs
+event_signature = w3.sha3(text="Transfer(address,address,uint256)").hex()
 
 logs = w3.eth.getLogs({
-    "fromBlock": w3.eth.blocknumber - 120,
-    "address": w3. oChecksumadress(ck_token_addr),
+    "fromBlock": w3.eth.blockNumber - 120,
+    "address": w3.toChecksumAddress(ck_token_addr),
     "topics": [event_signature]
 })
 
-# Notas:
-# - 120 bloques es el rango máximo para CloudFlare Provider
-# - Si no has encontrado ningún evento de Transferencia, también puedes intentar obtener un tokenId en:
-# https://etherscan. o/address/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d#events
-# Haz clic para expandir los registros del evento y copiar su argumento "tokenId"
+# Notes:
+#   - 120 blocks is the max range for CloudFlare Provider
+#   - If you didn't find any Transfer event you can also try to get a tokenId at:
+#       https://etherscan.io/address/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d#events
+#       Click to expand the event's logs and copy its "tokenId" argument
 
-recent_tx = [get_event_data(tx_event_abi, log)["args"] para logs de logs]
+recent_tx = [get_event_data(w3.codec, tx_event_abi, log)["args"] for log in logs]
 
-kitty_id = recent_tx[0]['tokenId'] # Pegue el "tokenId" aquí desde el enlace de arriba
-is_pregnant = ck_contract. unctions.isPregnant(kitty_id).call()
-print(f"{name} [{symbol}] NFTs {kitty_id} está embarazado: {is_pregnant}")
+kitty_id = recent_tx[0]['tokenId'] # Paste the "tokenId" here from the link above
+is_pregnant = ck_contract.functions.isPregnant(kitty_id).call()
+print(f"{name} [{symbol}] NFTs {kitty_id} is pregnant: {is_pregnant}")
 ```
 
 El contrato de CryptoKitties tiene algunos eventos interesantes aparte de los estándar.
@@ -210,39 +210,35 @@ ck_event_signatures = [
 pregnant_logs = w3.eth.getLogs({
     "fromBlock": w3.eth.blockNumber - 120,
     "address": w3.toChecksumAddress(ck_token_addr),
-    "topics": [ck_extra_events_abi[0]]
+    "topics": [ck_event_signatures[0]]
 })
 
-recent_pregnants = [get_event_data(ck_extra_events_abi[0], log)["args"] for log in pregnant_logs]
+recent_pregnants = [get_event_data(w3.codec, ck_extra_events_abi[0], log)["args"] for log in pregnant_logs]
 
 # Here is a Birth Event:
 # - https://etherscan.io/tx/0x3978028e08a25bb4c44f7877eb3573b9644309c044bf087e335397f16356340a
 birth_logs = w3.eth.getLogs({
     "fromBlock": w3.eth.blockNumber - 120,
     "address": w3.toChecksumAddress(ck_token_addr),
-    "topics": [ck_extra_events_abi[1]]
+    "topics": [ck_event_signatures[1]]
 })
 
-recent_births = [get_event_data(ck_extra_events_abi[1], log)["args"] for log in birth_logs]
+recent_births = [get_event_data(w3.codec, ck_extra_events_abi[1], log)["args"] for log in birth_logs]
 ```
 
 ## NFT populares {#popular-nfts}
 
-- [ Etherscan NFT Tracker ](https://etherscan.io/tokens-nft) enumera los principales NFT en Ethereum por volumen de transferencias.
+- [Etherscan NFT Tracker](https://etherscan.io/tokens-nft) enumera los principales NFT en Ethereum por volumen de transferencias.
 - [CryptoKitties](https://www.cryptokitties.co/) es un juego centrado en criables, coleccionables y tan adorables criaturas que llamamos CryptoKitties.
 - [Sorare](https://sorare.com/) es un juego de fútbol de fantasía global en el que puedes coleccionar coleccionables de ediciones limitadas, gestiona tus equipos y compite para ganar premios.
 - [Ethereum Name Service (ENS)](https://ens.domains/) ofrece un Nombre en forma descentralizada de abordar los recursos tanto dentro y fuera de la cadena de bloques utilizando nombres sencillos y legibles por humanos.
 - [Unstoppable Domains](https://unstoppabledomains.com/) es una empresa con sede en San Francisco que crea dominios en blockchains. Los dominios de blockchain reemplazan las direcciones de criptomonedas por nombres legibles por humanos y se pueden usar para habilitar sitios web resistentes a la censura.
 - [Las tarjetas no encadenadas](https://godsunchained.com/) son un TCG en la blockchain de Ethereum, que utiliza los NFT para representar la propiedad real en los activos del juego.
+- [Bored Ape Yacht Club](https://boredapeyachtclub.com) es una colección de 10.000 NFT únicos que, además de ser una obra de arte de probada rareza, actúa como token de membresía del club, lo que proporciona ventajas y beneficios a los miembros que aumentan con el tiempo como resultado de los esfuerzos de la comunidad.
 
-## Leer más {#further-reading}
+## Más información {#further-reading}
 
 - [EIP-721: ERC-721 Estándar de token no fungible](https://eips.ethereum.org/EIPS/eip-721)
 - [OpenZeppelin: Documentos de ERC-721](https://docs.openzeppelin.com/contracts/3.x/erc721)
 - [OpenZeppelin: Implementación de ERC-721](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol)
-
-## Temas relacionados {#related-topics}
-
-- [ERC-20](/developers/docs/standards/tokens/erc-20/)
-- [ERC-777](/developers/docs/standards/tokens/erc-777/)
-- [ERC-1155](/developers/docs/standards/tokens/erc-1155/)
+- [API de NFT de Alchemy](https://docs.alchemy.com/alchemy/enhanced-apis/nft-api)

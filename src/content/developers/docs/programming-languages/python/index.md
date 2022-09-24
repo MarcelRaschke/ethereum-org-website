@@ -46,11 +46,12 @@ Need a more basic primer first? Check out [ethereum.org/learn](/learn/) or [ethe
 
 ## Python projects and tools {#python-projects-and-tools}
 
-### Active:
+### Active: {#active}
 
 - [Web3.py](https://github.com/ethereum/web3.py) - _Python library for interacting with Ethereum_
-- [Brownie](https://github.com/eth-brownie/brownie) - _Python framework for deploying, testing and interacting with Ethereum smart contracts_
 - [Vyper](https://github.com/ethereum/vyper/) - _Pythonic Smart Contract Language for the EVM_
+- [Ape](https://github.com/ApeWorX/ape) - _The smart contract development tool for Pythonistas, Data Scientists, and Security Professionals_
+- [Brownie](https://github.com/eth-brownie/brownie) - _Python framework for deploying, testing and interacting with Ethereum smart contracts_
 - [py-evm](https://github.com/ethereum/py-evm) - _implementation of the Ethereum Virtual Machine_
 - [eth-tester](https://github.com/ethereum/eth-tester) - _tools for testing Ethereum-based applications_
 - [eth-utils](https://github.com/ethereum/eth-utils/) - _utility functions for working with Ethereum related codebases_
@@ -58,15 +59,17 @@ Need a more basic primer first? Check out [ethereum.org/learn](/learn/) or [ethe
 - [py-wasm](https://github.com/ethereum/py-wasm) - _Python implementation of the web assembly interpreter_
 - [pydevp2p](https://github.com/ethereum/pydevp2p) - _implementation of the Ethereum P2P stack_
 - [pymaker](https://github.com/makerdao/pymaker) - _Python API for Maker contracts_
+- [siwe](https://github.com/spruceid/siwe-py) - _Sign in with Ethereum (siwe) for Python_
+- [Web3 DeFi for Ethereum integrations](https://github.com/tradingstrategy-ai/web3-ethereum-defi) - _A Python package with ready integrations for ERC-20, Uniswap and other popular projects_
 
-### Archived / No longer maintained:
+### Archived / No longer maintained: {#archived--no-longer-maintained}
 
 - [Trinity](https://github.com/ethereum/trinity) - _Ethereum Python client_
 - [Mamba](https://mamba.black) - _framework to write, compile, and deploy smart contracts written in Vyper language_
 
 Looking for more resources? Check out [ethereum.org/developers](/developers/).
 
-## Projects using Python tooling
+## Projects using Python tooling {#projects-using-python-tooling}
 
 The following Ethereum-based projects use tools mentioned on this page. The related open-source repositories serve as a good reference for example code and best practices.
 
@@ -74,11 +77,12 @@ The following Ethereum-based projects use tools mentioned on this page. The rela
 - [Curve](https://curve.fi/) and [Curve smart contracts repository](https://github.com/curvefi/curve-contract)
 - [BadgerDAO](https://badger.com/) and [smart contracts using Brownie toolchain](https://github.com/Badger-Finance/badger-system)
 - [Sushi](https://sushi.com/) uses [Python in managing and deploying their vesting contracts](https://github.com/sushiswap/sushi-vesting-protocols)
+- [Alpha Finance](https://alphafinance.io/), of Alpha Homora fame, uses [Brownie to test and deploy smart contracts](https://github.com/AlphaFinanceLab/alpha-staking-contract)
 
-## Python Community Contributors {#python-community-contributors}
+## Python Community discussion {#python-community-contributors}
 
-The [Ethereum Python Community Discord](https://discord.gg/9zk7snTfWe) is host to a rapidly growing community and is the dedicated
-resource for discussions on any of the above projects and related topics.
+- [Ethereum Python Community Discord](https://discord.gg/9zk7snTfWe) for Web3.py and other Python framework discussion
+- [Vyper Discord](<[https://discord.gg/9zk7snTfWe](https://discord.gg/SdvKC79cJk)>) for Vyper smart contract programming disucssion
 
 ## Other aggregated lists {#other-aggregated-lists}
 

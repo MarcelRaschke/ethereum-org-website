@@ -33,7 +33,7 @@ Một số nỗ lực hợp tác để làm cho doanh nghiệp Ethereum thân th
 
 - [EEA -](https://entethalliance.org/) _Enterprise Ethereum Alliance là một tổ chức tiêu chuẩn do thành viên điều hành, có điều lệ là phát triển các thông số kỹ thuật chuỗi khối mở, hướng đến sự hài hòa và khả năng tương tác cho các doanh nghiệp và người tiêu dùng trên toàn thế giới. Cộng đồng thành viên toàn cầu của chúng tôi gồm các nhà lãnh đạo, người tiếp nhận, nhà đổi mới, nhà phát triển và doanh nghiệp cộng tác để tạo ra một trang web mở, phi tập trung vì lợi ích của mọi người._
 
-- [Hyperledger Foundation](https://hyperledger.org) _Hyperledger là một nỗ lực hợp tác mã nguồn mở được tạo ra để thúc đẩy các công nghệ chuỗi khối công nghiệp chéo. Đây là sự hợp tác toàn cầu, được tổ chức bởi Quỹ Linux, bao gồm các nhà lãnh đạo về tài chính, ngân hàng, Internet vạn vật, chuỗi cung ứng, sản xuất và Công nghệ._ _Nền tảng này có một số dự án hoạt động với ngăn xếp Ethereum:_ - [Hyperledger Besu](https://www.hyperledger.org/blog/2019/08/29/announcing-hyperledger-besu) - [Hyperledger Burrow](https://www.hyperledger.org/projects/hyperledger-burrow)
+- [Hyperledger Foundation](https://hyperledger.org) _Hyperledger là một nỗ lực hợp tác mã nguồn mở được tạo ra để thúc đẩy các công nghệ chuỗi khối công nghiệp chéo. Đây là sự hợp tác toàn cầu, được tổ chức bởi Quỹ Linux, bao gồm các nhà lãnh đạo về tài chính, ngân hàng, Internet vạn vật, chuỗi cung ứng, sản xuất và Công nghệ._ _Nền tảng này có một số dự án hoạt động với Ethereum Stack:_ - [Hyperledger Besu](https://www.hyperledger.org/blog/2019/08/29/announcing-hyperledger-besu) - [Hyperledger Burrow](https://www.hyperledger.org/projects/hyperledger-burrow)
 
 ## Dịch vụ tập trung vào doanh nghiệp {#enterprise-focused-services}
 
@@ -70,8 +70,8 @@ Mạng Ethereum công cộng và riêng tư có thể cần các tính năng c�
 
 ### Bảo mật {#security}
 
-- [Clef](https://geth.ethereum.org/clef/Overview) _được sử dụng để ký các giao dịch và dữ liệu và có nghĩa là một sự thay thế cho quản lý tài khoản geth_
-- [EthSigne -](https://gitter.im/PegaSysEng/EthSigner) _Ứng dụng ký giao dịch được sử dụng với nhà cung cấp web3_
+- [Clef](https://geth.ethereum.org/docs/clef/tutorial) _được sử dụng để ký các giao dịch và dữ liệu và có nghĩa là một sự thay thế cho quản lý tài khoản geth_
+- [EthSigne -](https://github.com/ConsenSys/ethsigner) _Ứng dụng ký giao dịch được sử dụng với nhà cung cấp web3_
 
 ### Bộ công cụ {#tooling}
 

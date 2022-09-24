@@ -11,7 +11,7 @@ Ahhoz, hogy az Ethereum decentralziáltan tudjon működni, egy elosztott csomó
 
 ## Előfeltételek {#prerequisites}
 
-Érdemes tisztában lenned a decentralizált hálózat fogalmával, mielőtt belemélyednél és futtatnád a saját Ethereum kliens példányodat. Nézd meg a [bevezetés az Ethereumba](/en/developers/docs/intro-to-ethereum/) cikket.
+Érdemes tisztában lenned a decentralizált hálózat fogalmával, mielőtt belemélyednél és futtatnád a saját Ethereum kliens példányodat. Nézd meg a [bevezetés az Ethereumba](/developers/docs/intro-to-ethereum/) cikket.
 
 ## Mik azok a csomópontok és kliensek? {#what-are-nodes-and-clients}
 
@@ -19,9 +19,9 @@ A "csomópont" egy szoftverre utal, melyet kliensnek hívunk. Egy kliens egy Eth
 
 Valós idejű látványt kaphatsz az Ethereum hálózatról, ha megnézed a [csomópontok térképét](https://etherscan.io/nodetracker).
 
-Valamennyi [Ethereum kliens implementáció](/developers/docs/nodes-and-clients/#clients) létezik különböző nyelveken. Ami közös van ezekben az implementációkban, hogy mindegyikük egy formális specifikációt követ. Ez a specifikáció mondja ki, hogyan működik az Ethereum hálózat és a blokklánc.
+Valamennyi [Ethereum kliens implementáció](/developers/docs/nodes-and-clients/#execution-clients) létezik különböző nyelveken. Ami közös van ezekben az implementációkban, hogy mindegyikük egy formális specifikációt követ. Ez a specifikáció mondja ki, hogyan működik az Ethereum hálózat és a blokklánc.
 
-![Eth1x kliens](./client-diagram.png) Az Ethereum kliens funkciók egyszerűsített diagramja.
+![Eth1x kliens](../../../../../developers/docs/nodes-and-clients/client-diagram.png) Az Ethereum kliens funkciók egyszerűsített diagramja.
 
 ## Csomópont típusok {#node-types}
 
@@ -57,15 +57,15 @@ A saját csomópont futtatása lehetővé teszi az Ethereum valóban privát, ö
 
 - A csomópontod önállóan ellenőrzi az összes tranzakciót és blokkot, mely ellentmond a konszenzus szabályoknak. Ez azt jelenti, hogy nem kell semmilyen más csomópontra támaszkodnod a hálózatban vagy teljesen megbíznod bennük.
 - Nem kell a címeidet és az egyenlegeidet véletlenszerű csomópontokra szivárogtatnod. Minden ellenőrizhető a saját klienseddel.
-- A dappod biztonságosabb és privátabb lehet, ha saját csomópontot használsz. A [Metamask](https://metamask.io), a [MyEtherWallet](https://myetherwallet.com) és néhány másik tárcát egyszerűen átirányíthatsz a helyi csomópontodra.
+- A dappod biztonságosabb és privátabb lehet, ha saját csomópontot használsz. A [MetaMask](https://metamask.io), a [MyEtherWallet](https://myetherwallet.com) és néhány másik tárcát egyszerűen átirányíthatsz a helyi csomópontodra.
 
-![Hogyan férhetsz hozzá az Ethereumhoz az alkalmazásoddal és a csomópontoddal](./nodes.png)
+![Hogyan férhetsz hozzá az Ethereumhoz az alkalmazásoddal és a csomópontoddal](../../../../../developers/docs/nodes-and-clients/nodes.png)
 
 ### Hálózati előnyök {#network-benefits}
 
 A csomópontok sokfélesége fontos az Ethereum egészsége, biztonsága és működési rugalmassága szempontjából.
 
-- Kis méretű csomópontok számára szolgáltatnak blokklánc adatokat, melyek tőlük függnek. Magas használati csúcsok esetén elegendő teljes csomópontnak kell lennie a kis méretű csomópontok szinkronizálásához. A kis méretű csomópontok nem tárolják az egész blokkláncot, ehelyett az adatait hitelesítik a [blokk fejlécekben lévő állapot gyökereken](/en/developers/docs/blocks/#block-anatomy) keresztül. További információkat kérhetnek a blokkokról, ha szükségük van rá.
+- Kis méretű csomópontok számára szolgáltatnak blokklánc adatokat, melyek tőlük függnek. Magas használati csúcsok esetén elegendő teljes csomópontnak kell lennie a kis méretű csomópontok szinkronizálásához. A kis méretű csomópontok nem tárolják az egész blokkláncot, ehelyett az adatait hitelesítik a [blokk fejlécekben lévő állapot gyökereken](/developers/docs/blocks/#block-anatomy) keresztül. További információkat kérhetnek a blokkokról, ha szükségük van rá.
 - A teljes csomópontok betartatják a proof-of-work konszenzus szabályait, így nem lehet őket becsapni olyan blokkok elfogadására, amelyek nem követik őket. Ez extra biztonságot nyújt a hálózatnak, mert ha az összes csomópont kis méretű csomópont lenne, amelyek nem végeznek teljes ellenőrzést, a bányászok megtámadhatnák a hálózatot, és adott esetben magasabb jutalommal rendelkező blokkokat hozhatnának létre.
 
 Ha teljes csomópontot futtatsz, az egész Ethereum hálózat profitál belőle.
@@ -95,11 +95,11 @@ Ha teljes csomópontot futtatsz, az egész Ethereum hálózat profitál belőle.
 
 A saját csomópont futtatása nehéz lehet, és nem mindig kell saját példányt futtatnod. Ebben az esetben használhatod egy harmadik fél API szolgáltatását, mint az [Infura](https://infura.io), [Alchemy](https://alchemyapi.io), vagy a [QuikNode](https://www.quiknode.io). Alternatívaként használhatod az [ArchiveNode-ot](https://archivenode.io/), ami egy közösség által finanszírozott archív csomópont, mely archív adatot fog szolgáltatni az Ethereum blokkláncról független fejlesztőknek, akik egyébként nem engedhetnék meg ezt maguknak.
 
-Ha valaki egy Ethereum csomópontot futtat egy nyilvános API-jal a közösségedben, akkor át tudod irányítani a könnyű tárcákat (mint a Metamask) erre a közösségi csomópontra [egy egyedi RPC-n keresztül](https://metamask.zendesk.com/hc/en-us/articles/360015290012-Using-a-Local-Node) és nagyobb fokú adatvédelemben részesülhetsz.
+Ha valaki egy Ethereum csomópontot futtat egy nyilvános API-jal a közösségedben, akkor át tudod irányítani a könnyű tárcákat (mint a MetaMask) erre a közösségi csomópontra [egy egyedi RPC-n keresztül](https://metamask.zendesk.com/hc/en-us/articles/360015290012-Using-a-Local-Node) és nagyobb fokú adatvédelemben részesülhetsz.
 
 Másrészt, ha klienst futtatsz, megoszthatod azokat barátaiddal, akiknek szüksége lehet rá.
 
-## Kliensek {#clients}
+## Kliensek {#execution-clients}
 
 Az Ethereumot úgy tervezték, hogy különböző kliensekkel rendelkezzen, amelyeket különféle csapatok fejlesztettek ki különböző programozási nyelvek felhasználásával. Ez erősebbé és sokszínűbbé teszi a hálózatot. Az ideális cél a sokszínűség elérése anélkül, hogy egy kliens dominálna és a hiba lehetőséget a lehető legkisebbre szűkítsük.
 
@@ -107,13 +107,13 @@ Ez a táblázat összegezi a különböző klienseket. Az összesen aktívan dol
 
 | Kliens                                                       | Nyelv    | Operációs rendszerek  | Hálózatok                                     | Szinkronizációs stratégiák | Állapot elhagyás    |
 | ------------------------------------------------------------ | -------- | --------------------- | --------------------------------------------- | -------------------------- | ------------------- |
-| [Geth](https://geth.ethereum.org/)                           | Ugrás    | Linux, Windows, macOS | Mainnet, Görli, Rinkeby, Ropsten              | Gyors, teljes              | Archív, csökkentett |
+| [Geth](https://geth.ethereum.org/)                           | Go       | Linux, Windows, macOS | Mainnet, Görli, Rinkeby, Ropsten              | Gyors, teljes              | Archív, csökkentett |
 | [OpenEthereum](https://github.com/openethereum/openethereum) | Rust     | Linux, Windows, macOS | Mainnet, Kovan, Ropsten, és még több          | Warp, teljes               | Archív, csökkentett |
 | [Nethermind](http://nethermind.io/)                          | C#, .NET | Linux, Windows, macOS | Mainnet, Görli, Ropsten, Rinkeby, és még több | Gyors, teljes              | Archív, csökkentett |
-| [Besu](https://pegasys.tech/solutions/hyperledger-besu/)     | Java     | Linux, Windows, macOS | Mainnet, Rinkeby, Ropsten, és Görli           | Gyors, teljes              | Archív, csökkentett |
+| [Besu](https://besu.hyperledger.org/en/stable/)              | Java     | Linux, Windows, macOS | Mainnet, Rinkeby, Ropsten, és Görli           | Gyors, teljes              | Archív, csökkentett |
 | [Trinity](https://trinity.ethereum.org/)                     | Python   | Linux, macOS          | Mainnet, Görli, Ropsten, és még több          | Full, Beam, Fast/Header    | Archív              |
 
-További információkért a támogatott hálózatokról olvasd el az [Ethereum hálózatok](/en/developers/docs/networks/) cikket.
+További információkért a támogatott hálózatokról olvasd el az [Ethereum hálózatok](/developers/docs/networks/) cikket.
 
 ### A különböző implementációk előnyei {#advantages-of-different-implementations}
 
@@ -198,23 +198,23 @@ Attól függően hogy melyik szoftvert és szinkronizációs módot használjuk,
 | Nethermind   | 200GB+                   | 3TB+                      |
 | Besu         | 750GB+                   | 4TB+                      |
 
-![Egy diagram, mely megmutatja, hogy a teljes szinkronizációhoz szükséges adat idővel nő](./full-sync.png)
+![Egy diagram, mely megmutatja, hogy a teljes szinkronizációhoz szükséges adat idővel nő](../../../../../developers/docs/nodes-and-clients/full-sync.png)
 
-![Egy diagram, mely megmutatja, hogy az archív szinkronizációhoz szükséges adat idővel nő](./archive-sync.png)
+![Egy diagram, mely megmutatja, hogy az archív szinkronizációhoz szükséges adat idővel nő](../../../../../developers/docs/nodes-and-clients/archive-sync.png)
 
 A fenti értékek mutatják hogy mindig változik a tárhelykövetelmény. A lehető legfrissebb adatokat a Geth-ről és a Parityről lásd itt: [Teljes szinkronizációs adat](https://etherscan.io/chartsync/chaindefault) és [Archívált szinkronizációs adat](https://etherscan.io/chartsync/chainarchive).
 
 ### Ethereum egy egykártyás számítógépen {#ethereum-on-a-single-board-computer}
 
-A lehető legkényelmesebb és legegyszerűbb módja egy Ethereum csomópont futtatásának ha egykártyás számítógépet használunk ARM architektúrával, mint mondjuk egy Raspberry Pi. [Ethereum ARM-en](https://twitter.com/EthereumOnARM) találunk képeket Geth Parity, Nethermind és Besu kliensekről. Egy egyszerű leírás arról, hogy [hogyan telepítsünk egy ARM klienst](/en/developers/tutorials/run-node-raspberry-pi/).
+A lehető legkényelmesebb és legegyszerűbb módja egy Ethereum csomópont futtatásának ha egykártyás számítógépet használunk ARM architektúrával, mint mondjuk egy Raspberry Pi. [Ethereum ARM-en](https://twitter.com/EthereumOnARM) találunk képeket Geth Parity, Nethermind és Besu kliensekről. Egy egyszerű leírás arról, hogy [hogyan telepítsünk egy ARM klienst](/developers/tutorials/run-node-raspberry-pi/).
 
 A kicsi, olcsó, és hatékony eszközök mint ezek ideálisak egy otthoni csomópont futtatására.
 
-## Eth2 kliensek {#eth2-clients}
+## Eth2 kliensek {#consensus-clients}
 
-Az [Eth2 fejlesztéseket](/eth2/beacon-chain/) új kliensek támogatják. A Beacon Chain-nen fognak futni és az új [proof-of-stake](/developers/docs/consensus-mechanisms/pos/) konszenzus mechanizmust fogják támogatni.
+Az [Eth2 fejlesztéseket](/upgrades/beacon-chain/) új kliensek támogatják. A Beacon Chain-nen fognak futni és az új [proof-of-stake](/developers/docs/consensus-mechanisms/pos/) konszenzus mechanizmust fogják támogatni.
 
-[Eth2 kliens megtekintése](/eth2/get-involved/#clients).
+[Eth2 kliens megtekintése](/upgrades/get-involved/#clients).
 
 ## További olvasnivaló {#further-reading}
 
@@ -228,10 +228,10 @@ Az interneten rengeteg utasítás és információ található az Ethereum klien
 
 ## Kapcsolódó témák {#related-topics}
 
-- [Blokkok](/en/developers/docs/blocks/)
-- [Hálózatok](/en/developers/docs/networks/)
+- [Blokkok](/developers/docs/blocks/)
+- [Hálózatok](/developers/docs/networks/)
 
 ## Kapcsolódó útmutatók {#related-tutorials}
 
-- [Csomópont futtatása Geth-tel](/developers/tutorials/run-light-node-geth/) _– Hogyan lehet letölteni, telepíteni és futtatni a Geth-et. Lefedi a szinkronizációs módokat, a Javascript konzolt és még sok mást._
+- [Csomópont futtatása Geth-tel](/developers/tutorials/run-light-node-geth/) _– Hogyan lehet letölteni, telepíteni és futtatni a Geth-et. Lefedi a szinkronizációs módokat, a JavaScript konzolt és még sok mást._
 - [Alakítsd át a Raspberry Pi 4-edet egy Eth 1.0 vagy egy Eth 2.0 csomóponttá csak a MicroSD kártya flashelésével - Telepítési útmutató](/developers/tutorials/run-node-raspberry-pi/) _– Flasheld a Raspberry Pi 4-et, csatlakoztass egy ethernet kábelt, csatlakoztasd az SSD-t, és kapcsold be az eszközt, hogy a Raspberry Pi 4 teljes Ethereum 1.0 vagy Ethereum 2.0 csomópontokká (beacon chain / validátor) váljon._

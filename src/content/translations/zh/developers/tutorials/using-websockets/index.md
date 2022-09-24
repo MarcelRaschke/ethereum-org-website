@@ -6,14 +6,15 @@ lang: zh
 sidebar: true
 tags:
   - "alchemy"
-  - "websocket"
+  - "websockets"
   - "查询"
   - "入门指南"
   - "订阅"
   - "javascript"
-skill: 初学者
+skill: beginner
 source: Alchemy文档
 sourceUrl: https://docs.alchemyapi.io/guides/using-websockets
+published: 2020-12-01
 ---
 
 这是有关使用 WebSocket 和 Alchemy 向以太坊区块链发出请求的入门级指南。
@@ -24,13 +25,13 @@ sourceUrl: https://docs.alchemyapi.io/guides/using-websockets
 
 与任何网络连接一样，您不应该假设 WebSocket 将永远保持打开状态而不会中断，但是正确地手动处理丢弃的连接和重新连接可能很难做到正确。 WebSocket 的另一个缺点是，您在响应中不会得到 HTTP 状态码，而只会得到错误消息。
 
-[Alchemy Web3](https://docs.alchemyapi.io/documentation/alchemy-web3)自动添加对 WebSocket 失败的处理并重试，而无需进行配置。
+[Alchemy Web3](https://docs.alchemy.com/reference/api-overview)自动添加对 WebSocket 失败的处理并重试，而无需进行配置。
 
 ## 试试看 {#try-it-out}
 
 测试 WebSocket 最简单的方式是安装命令行工具来进行 WebSocket 请求，例如[wscat](https://github.com/websockets/wscat)。 使用 wscat，您可以发送如下请求：
 
-_注意：如果您有 Alchemy 帐户，则可以将`demo`替换成自己的 API 密钥。 [在此处注册免费的 Alchemy 帐户！](https://dashboard.alchemyapi.io/signup/)_
+_注意：如果您有 Alchemy 帐户，则可以将`demo`替换成自己的 API 密钥。 [在此处注册免费的 Alchemy 帐户！](https://auth.alchemyapi.io/signup)_
 
 ```
 $ wscat -c wss://eth-mainnet.ws.alchemyapi.io/ws/demo
@@ -45,7 +46,7 @@ $ wscat -c wss://eth-mainnet.ws.alchemyapi.io/ws/demo
 
 首先，使用应用的 WebSocket URL 打开 WebSocket 您可以在[您的仪表板](https://dashboard.alchemyapi.io/)中打开应用的页面并点击“查看密钥”来找到您的应用的 WebSocket URL。 请注意，您的应用的 WebSocket URL 与其 HTTP 请求的 URL 不同，但两者都可以通过点击“查看密钥” 找到。
 
-![在您的Alchemy仪表板中的何处可找到您的WebSocket URL](./use-websockets.gif)
+![在您的Alchemy仪表板中的何处可找到您的WebSocket URL](../../../../../developers/tutorials/using-websockets/use-websockets.gif)
 
 [Alchemy API 参考](https://docs.alchemyapi.io/documentation/alchemy-api-reference/)中列出的的任何 API 都可以通过 WebSocket 使用。 为此，请使用与 HTTP POST 请求正文相同的有效载荷，而不是通过 WebSocket 发送该有效负载。
 
@@ -65,7 +66,7 @@ web3.eth.getBlockNumber().then(console.log) // -> 7946893
 
 ### `eth_subscribe` {#eth-subscribe}
 
-为指定事件创建新的订阅。 [详细了解`eth_subscribe`](https://docs.alchemyapi.io/documentation/alchemy-api-reference/json-rpc#eth_subscribe)。
+为指定的事件创建新的订阅。 [详细了解`eth_subscribe`](https://docs.alchemyapi.io/documentation/alchemy-api-reference/json-rpc#eth_subscribe)。
 
 #### 参数 {#parameters}
 
@@ -92,7 +93,7 @@ web3.eth.getBlockNumber().then(console.log) // -> 7946893
 
 1. `alchemy_newFullPendingTransactions`
 
-返回添加到待处理状态的所有交易的交易信息。 此订阅类型订阅待处理交易，类似于标准 Web3 调用`web3.eth.subscribe("pendingTransactions")`，但不同之处是它发出*完整的交易信息*，而不只是交易哈希。
+返回被添加到待定状态的所有交易的交易信息。 此订阅类型订阅待处理交易，类似于标准 Web3 调用<`web3.eth.subscribe("pendingTransactions")`，但不同之处是它发出*完整的交易信息*，而不只是交易哈希。
 
 示例：
 
@@ -215,7 +216,7 @@ web3.eth.getBlockNumber().then(console.log) // -> 7946893
 
 ### `eth_unsubscribe` {#eth-unsubscribe}
 
-取消现有的订阅以便不再发送更多事件。
+取消一个现有的订阅，以便不再发送任何事件。
 
 参数
 
@@ -250,4 +251,4 @@ curl https://eth-mainnet.alchemyapi.io/v2/your-api-key
 
 ---
 
-免费[注册 Alchemy](https://dashboard.alchemyapi.io/signup/)，查看[我们的文档](https://docs.alchemyapi.io/)，如需了解最新消息，请在[Twitter](https://twitter.com/AlchemyPlatform)上关注我们。
+免费[注册 Alchemy](https://auth.alchemyapi.io/signup)，查看[我们的文档](https://docs.alchemyapi.io/)，如需了解最新消息，请在[Twitter](https://twitter.com/AlchemyPlatform)上关注我们。

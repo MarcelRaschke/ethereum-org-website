@@ -5,7 +5,7 @@ lang: zh
 sidebar: true
 ---
 
-## 介绍 {#introduction}
+## 简介 {#introduction}
 
 **什么是非同质化代币？**
 
@@ -15,9 +15,9 @@ sidebar: true
 
 ERC-721 为 NFT 引入了一个标准，换言之， 这种类型的代币是独一无二的，并且可能与来自同一智能合约的另一代币有不同的价值，也许是因为它的年份、稀有性、甚至是它的观感。 稍等，看起来怎么样呢？
 
-是的。 所有 NFTs 都有一个 `uint256` 变量，名为 `tokenId`，所以对于任何 ERC-721 合约，这对值`contract address, tokenId` 必须是全局唯一的。 设想一个 dApp 有一个转换器，它用 `tokenId` 作为输入，并输出一个非常酷的图像， 例如僵尸、武器、技能或惊艳的猫咪！
+是的。 所有 NFTs 都有一个 `uint256` 变量，名为 `tokenId`，所以对于任何 ERC-721 合约，这对值`contract address, tokenId` 必须是全局唯一的。 也就是说，dApp 可以有一个“转换器”，该转换器使用 `tokenId` 输入和输出一些非常有趣的事物的图像， 例如僵尸、武器、技能或非常可爱的猫咪！
 
-## 前置要求 {#prerequisites}
+## 前体条件 {#prerequisites}
 
 - [帐户](/developers/docs/accounts/)
 - [智能合约](/developers/docs/smart-contracts/)
@@ -31,7 +31,7 @@ ERC-721（Ethereum Request for Comments 721），由 William Entriken、Dieter S
 
 如果一个智能合约实现了下列方法和事件，它就可以被称为 ERC-721 非同质化代币合约。 一旦被部署，它将负责跟踪在以太坊上创建的代币。
 
-来自[ EIP-721 ](https://eips.ethereum.org/EIPS/eip-721)：
+来自 [EIP-721](https://eips.ethereum.org/EIPS/eip-721)：
 
 #### 方法 {#methods}
 
@@ -57,11 +57,11 @@ ERC-721（Ethereum Request for Comments 721），由 William Entriken、Dieter S
 
 ### 示例 {#web3py-example}
 
-让我们看看一个标准是多么重要，它使我们能够简单地在以太坊上检查任何 ERC-721 代币合约。 我们只需要合约的应用程序二进制接口（ABI）就可以创造任何 ERC-721 代币的接口。 你可以在下面看到，我们将使用简化的 ABI，来做一个低难度的例子。
+让我们看看一个标准是多么重要，它使我们能够简单地在以太坊上检查任何 ERC-721 代币合约。 我们只需要合约的应用程序二进制接口（ABI）就可以创造任何 ERC-721 代币的接口。 下面我们将使用一个简化的应用程序二进制接口，使其成为一个简单易用的例子。
 
 #### Web3.py 示例 {#web3py-example}
 
-首先，请确保您已安装 [Web3.py](https://web3py.readthedocs.io/en/stable/quickstart.html#installation) Python 库：
+首先，确认已经安装了 [Web3.py](https://web3py.readthedocs.io/en/stable/quickstart.html#installation)Python 库。
 
 ```
 $ pip install web3
@@ -69,7 +69,7 @@ $ pip install web3
 
 ```python
 from web3 import Web3
-from web3.utils.events import get_event_data
+from web3._utils.events import get_event_data
 
 
 w3 = Web3(Web3.HTTPProvider("https://cloudflare-eth.com"))
@@ -163,7 +163,7 @@ logs = w3.eth.getLogs({
 #       https://etherscan.io/address/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d#events
 #       Click to expand the event's logs and copy its "tokenId" argument
 
-recent_tx = [get_event_data(tx_event_abi, log)["args"] for log in logs]
+recent_tx = [get_event_data(w3.codec, tx_event_abi, log)["args"] for log in logs]
 
 kitty_id = recent_tx[0]['tokenId'] # Paste the "tokenId" here from the link above
 is_pregnant = ck_contract.functions.isPregnant(kitty_id).call()
@@ -210,20 +210,20 @@ ck_event_signatures = [
 pregnant_logs = w3.eth.getLogs({
     "fromBlock": w3.eth.blockNumber - 120,
     "address": w3.toChecksumAddress(ck_token_addr),
-    "topics": [ck_extra_events_abi[0]]
+    "topics": [ck_event_signatures[0]]
 })
 
-recent_pregnants = [get_event_data(ck_extra_events_abi[0], log)["args"] for log in pregnant_logs]
+recent_pregnants = [get_event_data(w3.codec, ck_extra_events_abi[0], log)["args"] for log in pregnant_logs]
 
 # Here is a Birth Event:
 # - https://etherscan.io/tx/0x3978028e08a25bb4c44f7877eb3573b9644309c044bf087e335397f16356340a
 birth_logs = w3.eth.getLogs({
     "fromBlock": w3.eth.blockNumber - 120,
     "address": w3.toChecksumAddress(ck_token_addr),
-    "topics": [ck_extra_events_abi[1]]
+    "topics": [ck_event_signatures[1]]
 })
 
-recent_births = [get_event_data(ck_extra_events_abi[1], log)["args"] for log in birth_logs]
+recent_births = [get_event_data(w3.codec, ck_extra_events_abi[1], log)["args"] for log in birth_logs]
 ```
 
 ## 热门的 NFT {#popular-nfts}
@@ -234,15 +234,11 @@ recent_births = [get_event_data(ck_extra_events_abi[1], log)["args"] for log in 
 - [以太坊域名服务 (ENS)](https://ens.domains/) 提供了一种安全和去中心化的方式，用人类可读的名字来处理链上和链下的资源。
 - [Unstoppable Domains](https://unstoppabledomains.com/) 是一个坐落在旧金山，在区块链上创建域名的公司。 区块链域名用人类可读的名字替换加密货币地址，并且可用于支撑抗审查的网站。
 - [Gods Unchained Cards](https://godsunchained.com/) 是以太坊区块链上的 TCG（集换式卡牌游戏）, 它使用 NFT 来给游戏中的资产带来实际所有权。
+- [无聊猿游艇俱乐部](https://boredapeyachtclub.com)是一个由 10,000 个独特 NFT 组成的系列收藏品，这些收藏品不仅仅是非常罕见的艺术品，还是俱乐部入会的标志，可为成员提供多种特权和福利。在社区的努力下，这些特权和福利还会随着时间的推移不断增加。
 
 ## 延伸阅读 {#further-reading}
 
 - [EIP-721：ERC-721 非同质化代币标准](https://eips.ethereum.org/EIPS/eip-721)
 - [OpenZeppelin - ERC-721 文档](https://docs.openzeppelin.com/contracts/3.x/erc721)
 - [OpenZeppelin - ERC-721 实施](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol)
-
-## 相关主题 {#related-topics}
-
-- [ERC-20](/developers/docs/standards/tokens/erc-20/)
-- [ERC-777](/developers/docs/standards/tokens/erc-777/)
-- [ERC-1155](/developers/docs/standards/tokens/erc-1155/)
+- [Alchemy NFT API](https://docs.alchemy.com/alchemy/enhanced-apis/nft-api)

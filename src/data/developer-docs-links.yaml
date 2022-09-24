@@ -32,6 +32,9 @@
     - id: docs-nav-evm
       to: /developers/docs/evm/
       description: docs-nav-evm-description
+      items:
+        - id: docs-nav-opcodes
+          to: /developers/docs/evm/opcodes
     - id: docs-nav-gas
       to: /developers/docs/gas/
       description: docs-nav-gas-description
@@ -41,6 +44,8 @@
       items:
         - id: docs-nav-run-a-node
           to: /developers/docs/nodes-and-clients/run-a-node/
+        - id: docs-nav-client-diversity
+          to: /developers/docs/nodes-and-clients/client-diversity/
         - id: docs-nav-nodes-as-a-service
           to: /developers/docs/nodes-and-clients/nodes-as-a-service/
     - id: docs-nav-networks
@@ -55,8 +60,27 @@
           items:
             - id: docs-nav-mining
               to: /developers/docs/consensus-mechanisms/pow/mining/
+              items:
+                - id: docs-nav-mining-algorithms
+                  to: /developers/docs/consensus-mechanisms/pow/mining-algorithms/
+                  items:
+                    - id: docs-nav-dagger-hashamoto
+                      to: /developers/docs/consensus-mechanisms/pow/mining-algorithms/dagger-hashamoto
+                    - id: docs-nav-ethash
+                      to: /developers/docs/consensus-mechanisms/pow/mining-algorithms/ethash
         - id: docs-nav-proof-of-stake
           to: /developers/docs/consensus-mechanisms/pos/
+          items:
+            - id: docs-nav-gasper
+              to: /developers/docs/consensus-mechanisms/pos/gasper/
+            - id: docs-nav-weak-subjectivity
+              to: /developers/docs/consensus-mechanisms/pos/weak-subjectivity/
+            - id: docs-nav-attestations
+              to: /developers/docs/consensus-mechanisms/pos/attestations
+            - id: docs-nav-rewards-and-penalties
+              to: /developers/docs/consensus-mechanisms/pos/rewards-and-penalties/
+            - id: docs-nav-keys
+              to: /developers/docs/consensus-mechanisms/pos/keys/
 - id: docs-nav-ethereum-stack
   path: /developers/docs/
   items:
@@ -79,6 +103,16 @@
           to: /developers/docs/smart-contracts/compiling/
         - id: docs-nav-deploying-smart-contracts
           to: /developers/docs/smart-contracts/deploying/
+        - id: docs-nav-verifying-smart-contracts
+          to: /developers/docs/smart-contracts/verifying/
+        - id: docs-nav-upgrading-smart-contracts
+          to: /developers/docs/smart-contracts/upgrading/
+        - id: docs-nav-smart-contract-security
+          to: /developers/docs/smart-contracts/security/
+          description: docs-nav-smart-contract-security-description
+        - id: docs-nav-smart-contract-formal-verification
+          to: /developers/docs/smart-contracts/formal-verification/
+          description: docs-nav-smart-contract-formal-verification-description
         - id: docs-nav-composability
           to: /developers/docs/smart-contracts/composability/
     - id: docs-nav-development-networks
@@ -88,7 +122,6 @@
       to: /developers/docs/frameworks/
       description: docs-nav-development-frameworks-description
     - id: docs-nav-ethereum-client-apis
-      path: /developers/docs/apis/
       description: docs-nav-ethereum-client-apis-description
       items:
         - id: docs-nav-java-script-apis
@@ -103,9 +136,6 @@
       items:
         - id: docs-nav-block-explorers
           to: /developers/docs/data-and-analytics/block-explorers/
-    - id: docs-nav-security
-      to: /developers/docs/security/
-      description: docs-nav-security-description
     - id: docs-nav-storage
       to: /developers/docs/storage/
       description: docs-nav-storage-description
@@ -130,11 +160,16 @@
           to: /developers/docs/programming-languages/javascript/
         - id: docs-nav-python
           to: /developers/docs/programming-languages/python/
+        - id: docs-nav-ruby
+          to: /developers/docs/programming-languages/ruby/
         - id: docs-nav-rust
           to: /developers/docs/programming-languages/rust/
 - id: docs-nav-advanced
   path: /developers/docs/
   items:
+    - id: docs-nav-bridges
+      to: /developers/docs/bridges/
+      description: docs-nav-bridges-description
     - id: docs-nav-standards
       to: /developers/docs/standards/
       description: docs-nav-standards-description
@@ -148,6 +183,10 @@
               to: /developers/docs/standards/tokens/erc-721/
             - id: docs-nav-erc-777
               to: /developers/docs/standards/tokens/erc-777/
+            - id: docs-nav-erc-1155
+              to: /developers/docs/standards/tokens/erc-1155/
+            - id: docs-nav-erc-4626
+              to: /developers/docs/standards/tokens/erc-4626/
     - id: docs-nav-mev
       to: /developers/docs/mev/
       description: docs-nav-mev-description
@@ -158,8 +197,10 @@
       to: /developers/docs/scaling/
       description: docs-nav-scaling-description
       items:
-        - id: docs-nav-scaling-layer-2
-          to: /developers/docs/scaling/layer-2-rollups/
+        - id: docs-nav-scaling-optimistic-rollups
+          to: /developers/docs/scaling/optimistic-rollups/
+        - id: docs-nav-scaling-zk-rollups
+          to: /developers/docs/scaling/zk-rollups
         - id: docs-nav-scaling-channels
           to: /developers/docs/scaling/state-channels/
         - id: docs-nav-scaling-sidechains
@@ -168,3 +209,22 @@
           to: /developers/docs/scaling/plasma/
         - id: docs-nav-scaling-validium
           to: /developers/docs/scaling/validium/
+    - id: docs-nav-data-availability
+      to: /developers/docs/data-availability/
+      description: docs-nav-data-availability-description
+    - id: docs-nav-networking-layer
+      to: /developers/docs/networking-layer/
+      description: docs-nav-networking-layer-description
+      items:
+        - id: docs-nav-networking-layer-network-addresses
+          to: /developers/docs/networking-layer/network-addresses/
+    - id: docs-nav-data-structures-and-encoding
+      to: /developers/docs/data-structures-and-encoding/
+      description: docs-nav-data-structures-and-encoding-description
+      items:
+        - id: docs-nav-data-structures-and-encoding-patricia-merkle-trie
+          to: /developers/docs/data-structures-and-encoding/patricia-merkle-trie/
+        - id: docs-nav-data-structures-and-encoding-rlp
+          to: /developers/docs/data-structures-and-encoding/rlp/
+        - id: docs-nav-data-structures-and-encoding-ssz
+          to: /developers/docs/data-structures-and-encoding/ssz/

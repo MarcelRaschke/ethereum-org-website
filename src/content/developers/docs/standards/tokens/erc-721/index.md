@@ -21,7 +21,7 @@ than another Token from the same Smart Contract, maybe due to its age, rarity or
 Wait, visual?
 
 Yes! All NFTs have a `uint256` variable called `tokenId`, so for any ERC-721 Contract, the pair
-`contract address, uint256 tokenId` must be globally unique. That said, a dApp can have a "converter" that
+`contract address, uint256 tokenId` must be globally unique. That said, a dapp can have a "converter" that
 uses the `tokenId` as input and outputs an image of something cool, like zombies, weapons, skills or amazing kitties!
 
 ## Prerequisites {#prerequisites}
@@ -249,14 +249,17 @@ recent_births = [get_event_data(w3.codec, ck_extra_events_abi[1], log)["args"] f
   manage your teams and compete to earn prizes.
 - [The Ethereum Name Service (ENS)](https://ens.domains/) offers a secure & decentralised way to address resources both
   on and off the blockchain using simple, human-readable names.
+- [POAP](https://poap.xyz) delivers free NFTs to people who attend events or complete specific actions. POAPs are free to create and distribute.
 - [Unstoppable Domains](https://unstoppabledomains.com/) is a San Francisco-based company building domains on
   blockchains. Blockchain domains replace cryptocurrency addresses with human-readable names and can be used to enable
   censorship-resistant websites.
 - [Gods Unchained Cards](https://godsunchained.com/) is a TCG on the Ethereum blockchain that uses NFT's to bring real ownership
   to in-game assets.
+- [Bored Ape Yacht Club](https://boredapeyachtclub.com) is a collection of 10,000 unique NFTs, which, as well as being a provably-rare piece of art, acts as a membership token to the club, providing member perks and benefits that increase over time as a result of community efforts.
 
 ## Further reading {#further-reading}
 
 - [EIP-721: ERC-721 Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721)
 - [OpenZeppelin - ERC-721 Docs](https://docs.openzeppelin.com/contracts/3.x/erc721)
 - [OpenZeppelin - ERC-721 Implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol)
+- [Alchemy NFT API](https://docs.alchemy.com/alchemy/enhanced-apis/nft-api)

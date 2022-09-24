@@ -7,11 +7,11 @@ sidebar: true
 
 # Our design principles {#contributing-to-ethereumorg-}
 
-<Emoji text=":wave:" size={1} /> Hello, and welcome to the **design principles** for ethereum.org. This is part of an ongoing process to evolve and improve ethereum.org.
+<Emoji text=":wave:" size={1} /> Hello, and welcome to the design principles for ethereum.org. This is part of an ongoing process to evolve and improve ethereum.org.
 
 Our principles inform the look and feel of the site and the content that's on it.
 
-You should read these before you [contribute to ethereum.org](/en/contributing/).
+You should read these before you [contribute to ethereum.org](/contributing/).
 
 ## What are design principles? {#ways-to-contribute}
 
@@ -24,7 +24,7 @@ In the context of ethereum.org these design principles are the foundation for wh
 Let's look at an example. One of the principles is “Credible”, which means that we want visitors to the site to _feel_ and _know_ that the site is trustworthy - just like the wider Ethereum ecosystem. Within that principle, we have 3 functional “sub-principles” that we believe are actionable steps we can take to make the site credible:
 
 - _“Fresh”_ i.e. keep the content up-to-date.
-- _“Social Proof”_ i.e. show the size, diversity and activity of the ecosystem (you know: Eth2 progress, DeFi, gaming, all the hackathons, etc.)
+- _“Social Proof”_ i.e. show the size, diversity and activity of the ecosystem (you know: Ethereum upgrade progress, DeFi, gaming, all the hackathons, etc.)
 - _“Consistent”_ i.e. consistency in the design of the site and the tone and accuracy of the writing.
 
 So when we're making design decisions, or copywriting decisions, we can then reference the “Credible” principle and ask:
@@ -83,8 +83,6 @@ The website is the product of many contributors, just like the ecosystem as a wh
 - **Collaborative:** This project brings together all of us.
 - **Sustainable:** Setting up for long-term maintenance by the community
 
-Information Architecture • Visual Direction • Code
-
 You can see our design principles in action [across our site](/).
 
 ## Give feedback {#give-feedback}
@@ -93,4 +91,4 @@ You can see our design principles in action [across our site](/).
 
 While these principles are focused on the ethereum.org website, we hope that many of them are representative of the values of the Ethereum ecosystem overall (e.g. you can see influence from the [principles of the Ethereum Whitepaper](https://github.com/ethereum/wiki/wiki/White-Paper#philosophy)). Maybe you even want to incorporate some of them into your own project!
 
-Let us know your thoughts on [Discord server](https://discord.gg/CetY6Y4) or by [creating an issue](<(https://github.com/ethereum/ethereum-org-website/issues/new?assignees=&labels=Type%3A+Feature&template=feature_request.md&title=)>).
+Let us know your thoughts on [Discord server](https://discord.gg/CetY6Y4) or by [creating an issue](https://github.com/ethereum/ethereum-org-website/issues/new?assignees=&labels=Type%3A+Feature&template=feature_request.md&title=).

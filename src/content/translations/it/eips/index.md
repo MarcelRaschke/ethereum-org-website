@@ -17,7 +17,7 @@ Tutti nella community di Ethereum hanno la possibilità di creare un'EIP. Le lin
 
 Le EIP giocano un ruolo fondamentale nel definire come si verificano i cambiamenti e come sono documentati su Ethereum. Sono il modo in cui le persone propongono, dibattono e adottano i cambiamenti. Esistono [diversi tipi di EIP](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1.md#eip-types) tra cui le EIP fondamentali per i cambiamenti del protocollo di basso livello che influenzano il consenso e richiedono un upgrade della rete e le ERC per gli standard delle applicazioni. Per esempio, standard per creare token, come [ERC20](https://eips.ethereum.org/EIPS/eip-20) o [ERC721](https://eips.ethereum.org/EIPS/eip-721), consentono alle applicazioni di interagire con questi token usando le stesse regole, e facilitando la creazione di applicazioni interoperabili.
 
-Ogni upgrade della rete consiste di una serie di EIP che necessitano di essere implementate da ogni [client di Ethereum](/en/learn/#clients-and-nodes) sulla rete. Questo implica che per mantenere il consenso con altri client sulla rete principale Ethereum, gli sviluppatori client devono assicurarsi di aver implementato tutte le EIP richieste.
+Ogni upgrade della rete consiste di una serie di EIP che necessitano di essere implementate da ogni [client di Ethereum](/learn/#clients-and-nodes) sulla rete. Questo implica che per mantenere il consenso con altri client sulla rete principale Ethereum, gli sviluppatori client devono assicurarsi di aver implementato tutte le EIP richieste.
 
 Oltre a fornire una specifica tecnica per le modifiche, le EIP sono l'unità attorno a cui gira la governance di Ethereum: tutti sono liberi di proporne una, e poi varie parti interessate nella community si confronteranno per determinare se deve essere adottata come standard o inclusa in un upgrade della rete. Poiché le EIP non fondamentali non devono essere adottate da tutte le applicazioni (per esempio, puoi creare un [token non ERC20](https://eips.ethereum.org/EIPS/eip-20)), ma le EIP principali devono essere ampiamente adottate (perché tutti i nodi devono aggiornarsi per rimanere parte della stessa rete), le EIP fondamentali richiedono un consenso più ampio all'interno della community rispetto a quelle non fondamentali.
 
@@ -30,9 +30,15 @@ Gli editor di EIP devono revisionare le EIP verificando solidità tecnica, gramm
 - Alex Beregszaszi (EWASM/Ethereum Foundation)
 - Greg Colvin (Community)
 - Casey Detrio (EWASM/Ethereum Foundation)
+- Matt Garnett (Quilt)
 - Hudson James (Ethereum Foundation)
 - Nick Johnson (ENS)
-- Nick Savers (Community)
+- Nick Savers (comunità)
+- Micah Zoltu (comunità)
+
+Gli editori EIP, insieme ai membri della community di [Ethereum Cat Herders](https://ethereumcatherders.com/) ed [Ethereum Magicians](https://ethereum-magicians.org/), stanno decidendo quale EIP sarà implementato, sono responsabili della facilitazione delle EIP, nonché dello spostamento delle EIP alla fase "Finale" o "Prelievo".
+
+Il processo di standardizzazione completa insieme al grafico sono descritti in [EIP-1](https://eips.ethereum.org/EIPS/eip-1)
 
 ## Maggiori informazioni {#learn-more}
 
@@ -44,7 +50,9 @@ Se ti interessa leggere di più sulle EIP, dai un'occhiata al [sito web delle EI
 
 ## Partecipa {#participate}
 
-Se ti interessa partecipare o condividere il tuo input sulle EIP, dai un'occhiata al [forum Ethereum Magicians](https://ethereum-magicians.org/), dove le EIP sono discusse con la community.
+Chiunque può creare EIP o ERC sebbene dovresti leggere [EIP-1](https://eips.ethereum.org/EIPS/eip-1), che delinea il processo dell'EPI, cos'è, i suoi tipi, che documentazione dovrebbe contenere, il formato e il modello, l'elenco degli Editor di EIP e tutto ciò che devi sapere a riguardo prima di crearne una. La tua nuova EIP dovrebbe definire nuove funzionalità che non siano ancora molto complesse, ma non super di nicchia e utilizzabili nei progetti dell'ecosistema di Ethereum. La parte più dura è la facilitazione, tu come autore devi facilitare le persone intorno alla tua EIP, raccogliere feedback, scrivere articoli descriventi i problemi risolti dalla tua EIP e collaborare ai progetti per implementarla.
+
+Se sei interessato a seguire il processo di discussione o condividere che pensi sulle EIP, dai un'occhiata al [forum dei Magicians di Ethereum](https://ethereum-magicians.org/), dove le EIP sono discusse con la community.
 
 Vedi anche:
 

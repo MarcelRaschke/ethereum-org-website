@@ -11,6 +11,8 @@ For this purpose, every Ethereum client implements the [JSON-RPC](/developers/do
 
 If you want to use JavaScript to connect with an Ethereum node, it's possible to use vanilla JavaScript but several convenience libraries exist within the ecosystem that make this much easier. With these libraries, developers can write intuitive, one-line methods to initialize JSON RPC requests (under the hood) that interact with Ethereum.
 
+Please note that since [The Merge](/upgrades/merge/), two connected pieces of Ethereum software - an execution client and a consensus client - are required to run a node. Please ensure your node includes both an execution and consensus client. If your node is not on your local machine (e.g. your node is running on an AWS instance) update the IP addresses in the tutorial accordingly. For more information please see our page on [running a node](/developers/docs/nodes-and-clients/run-a-node/).
+
 ## Prerequisites {#prerequisites}
 
 As well as understanding JavaScript, it might be helpful to understand the [Ethereum stack](/developers/docs/ethereum-stack/) and [Ethereum clients](/developers/docs/nodes-and-clients/).
@@ -29,10 +31,10 @@ Using providers, these libraries allow you to connect to Ethereum and read its d
 
 ```js
 // A Web3Provider wraps a standard Web3 provider, which is
-// what Metamask injects as window.ethereum into each page
+// what MetaMask injects as window.ethereum into each page
 const provider = new ethers.providers.Web3Provider(window.ethereum)
 
-// The Metamask plugin also allows signing transactions to
+// The MetaMask plugin also allows signing transactions to
 // send ether and pay to change state within the blockchain.
 // For this, we need the account signer...
 const signer = provider.getSigner()
@@ -68,11 +70,6 @@ Once set up you'll be able to query the blockchain for:
 - smart contract events
 - network id
 - and more...
-
-<!--- #### Try it
-
-This remix tutorial will show you [how to query the blockchain using web3js](https://remix.ethereum.org/#optimize=false&evmVersion=null&version=soljson-v0.6.6+commit.6c089d02.js)
---->
 
 ### Wallet functionality {#wallet-functionality}
 
@@ -157,7 +154,7 @@ Once set up you'll be able to:
 
 ### Interact with smart contract functions {#interact-with-smart-contract-functions}
 
-Javascript client libraries allow your application to call smart contract functions by reading the Application Binary Interface (ABI) of a compiled contract.
+JavaScript client libraries allow your application to call smart contract functions by reading the Application Binary Interface (ABI) of a compiled contract.
 
 The ABI essentially explains the contract's functions in a JSON format and allows you to use it like a normal JavaScript object.
 
@@ -217,11 +214,6 @@ This means you can:
 - Deploy a contract
 - And more...
 
-<!--- #### Try it
-
-This remix tutorial will show you [how to query a contract using web3js](https://remix.ethereum.org/#optimize=false&evmVersion=null&version=soljson-v0.6.6+commit.6c089d02.js)
---->
-
 ### Utility functions {#utility-functions}
 
 Utility functions give you handy shortcuts that make building with Ethereum a little easier.
@@ -275,7 +267,12 @@ ethers.utils.formatEther(balance)
 
 **Alchemyweb3 -** **_Wrapper around Web3.js with automatic retries and enhanced apis._**
 
-- [Documentation](https://docs.alchemyapi.io/documentation/alchemy-web3)
+- [Documentation](https://docs.alchemy.com/reference/api-overview)
+- [GitHub](https://github.com/alchemyplatform/alchemy-web3)
+
+**Alchemy NFT API -** **_API for fetching NFT data, including ownership, metadata attributes and more._**
+
+- [Documentation](https://docs.alchemy.com/alchemy/enhanced-apis/nft-api)
 - [GitHub](https://github.com/alchemyplatform/alchemy-web3)
 
 ## Further reading {#further-reading}
@@ -289,6 +286,6 @@ _Know of a community resource that helped you? Edit this page and add it!_
 
 ## Related tutorials {#related-tutorials}
 
-- [Set up Web3js to use the Ethereum blockchain in Javascript](/developers/tutorials/set-up-web3js-to-use-ethereum-in-javascript/) _– Instructions for getting web3.js set up in your project._
+- [Set up Web3js to use the Ethereum blockchain in JavaScript](/developers/tutorials/set-up-web3js-to-use-ethereum-in-javascript/) _– Instructions for getting web3.js set up in your project._
 - [Calling a smart contract from JavaScript](/developers/tutorials/calling-a-smart-contract-from-javascript/) _– Using the DAI token, see how to call contracts function using JavaScript._
 - [Sending transactions using web3 and Alchemy](/developers/tutorials/sending-transactions-using-web3-and-alchemy/) _– Step by step walkthrough for sending transactions from the backend._

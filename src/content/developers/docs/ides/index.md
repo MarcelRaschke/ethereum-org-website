@@ -5,29 +5,31 @@ lang: en
 sidebar: true
 ---
 
-When it comes to setting up an [integrated development environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment), building with Ethereum is similar to any other software project. There's many options to choose from, so at the end of the day, pick the one that best suits your preferences.
+When it comes to setting up an [integrated development environment (IDE)](https://wikipedia.org/wiki/Integrated_development_environment), programming applications on Ethereum is similar to programming any other software project. There are many options to choose from, so at the end of the day, pick the IDE or code editor that best suits your preferences. Most likely the best IDE choice for your Ethereum development is the IDE you already use for traditional software development.
 
 ## Web-based IDEs {#web-based-ides}
 
 If you're looking to fiddle with code before you [set up a local development environment](/developers/local-environment/), these web apps are custom-built for Ethereum smart contract development.
 
-**Remix -** **_Web-based IDE with built in static analysis, and a test blockchain virtual machine._**
+**[Remix](https://remix.ethereum.org/)** - **_Web-based IDE with built in static analysis, and a test blockchain virtual machine_**
 
-- [remix.ethereum.org](https://remix.ethereum.org/)
+**[ChainIDE](https://chainide.com/)** - **_A cloud-based multi-chain IDE_**
 
-**EthFiddle -** **_Web-based IDE that lets you write, compile, and debug your smart contract._**
+**[Replit (Solidity Starter)](https://replit.com/@replit/Solidity-starter-beta)** - **_A customizable development environment for Ethereum with hot reloading, error checking, and first-class testnet support_**
 
-- [ethfiddle.com](https://ethfiddle.com/)
+**[Tenderly Sandbox](https://sandbox.tenderly.co/)** - **_A fast prototyping environment where you can write, execute, and debug smart contracts in the browser using Solidity and JavaScript_**
+
+**[EthFiddle](https://ethfiddle.com/)** - **_Web-based IDE that lets you write, compile, and debug your smart contract_**
+
 - [Gitter](https://gitter.im/loomnetwork/ethfiddle)
 
 ## Desktop IDEs {#desktop-ides}
 
 Most established IDEs have built plugins to enhance the Ethereum development experience. At a minimum, they provide syntax highlighting for [smart contract languages](/developers/docs/smart-contracts/languages/).
 
-**Visual Studio Code -** **_Professional cross-platform IDE with official Ethereum support._**
+**Visual Studio Code -** **_Professional cross-platform IDE with official Ethereum support_**
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 - [Azure Blockchain Workbench](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-workbench?tab=Overview)
 - [Code samples](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/readme.md)
 - [GitHub](https://github.com/microsoft/vscode)

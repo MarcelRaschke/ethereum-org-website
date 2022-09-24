@@ -7,6 +7,8 @@ sidebar: true
 
 Web2 refers to the version of the internet most of us know today. An internet dominated by companies that provide services in exchange for your personal data. Web3, in the context of Ethereum, refers to decentralized apps that run on the blockchain. These are apps that allow anyone to participate without monetising their personal data.
 
+Looking for a more beginner-friendly resource? See our [introduction to web3](/web3/).
+
 ## Web3 benefits {#web3-benefits}
 
 Many Web3 developers have chosen to build dapps because of Ethereum's inherent decentralization:
@@ -14,7 +16,7 @@ Many Web3 developers have chosen to build dapps because of Ethereum's inherent d
 - Anyone who is on the network has permission to use the service – or in other words, permission isn't required.
 - No one can block you or deny you access to the service.
 - Payments are built in via the native token, ether (ETH).
-- Ethereum is turing-complete, meaning you can pretty much program anything.
+- Ethereum is turing-complete, meaning you can program pretty much anything.
 
 ## Practical comparisons {#practical-comparisons}
 
@@ -30,8 +32,9 @@ This doesn't mean that all services need to be turned into a dapp. These example
 
 Web3 has some limitations right now:
 
-- Scalability – transactions are slower on web3 because they're decentralized. Changes to state, like a payment, need to be processed by a miner and propagated throughout the network.
+- Scalability – transactions are slower on web3 because they're decentralized. Changes to state, like a payment, need to be processed by a node and propagated throughout the network.
 - UX – interacting with web3 applications can require extra steps, software, and education. This can be a hurdle to adoption.
+- Accessibility – the lack of integration in modern web browsers makes web3 less accessible to most users.
 - Cost – most successful dapps put very small portions of their code on the blockchain as it's expensive.
 
 ## Centralization vs decentralization {#centralization-vs-decentralization}
@@ -52,5 +55,9 @@ Note that these are general patterns that may not hold true in every network. Fu
 
 ## Further reading {#further-reading}
 
+- [What is Web3?](/web3/) - _ethereum.org_
+- [The Architecture of a Web 3.0 application](https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application) - _Preethi Kasireddy_
 - [The Meaning of Decentralization](https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274) _Feb 6, 2017 - Vitalik Buterin_
 - [Why Decentralization Matters](https://medium.com/s/story/why-decentralization-matters-5e3f79f7638e) _Feb 18, 2018 - Chris Dixon_
+- [What Is Web 3.0 & Why It Matters](https://medium.com/fabric-ventures/what-is-web-3-0-why-it-matters-934eb07f3d2b) _Dec 31, 2019 - Max Mersch and Richard Muirhead_
+- [Why We Need Web 3.0](https://medium.com/@gavofyork/why-we-need-web-3-0-5da4f2bf95ab) _Sep 12, 2018 - Gavin Wood_

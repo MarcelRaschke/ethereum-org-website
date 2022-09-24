@@ -5,14 +5,12 @@ author: Trailofbits
 lang: ro
 sidebar: true
 tags:
-  [
-    "solidity",
-    "contracte inteligente",
-    "securitate",
-    "testare",
-    "analiză statică",
-  ]
-skill: avansat
+  - "solidity"
+  - "contracte inteligente"
+  - "securitate"
+  - "testare"
+  - "analiză statică"
+skill: advanced
 published: 2020-06-09
 source: Construirea de contracte sigure
 sourceUrl: https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/slither
@@ -71,7 +69,7 @@ slither project_paths
 
 Pe lângă detectoare, Slither are capacități de revizuire a codului prin [imprimante](https://github.com/crytic/slither#printers) și [instrumente](https://github.com/crytic/slither#tools).
 
-Utilizează [crytic.io](https://crytic.io) pentru a obține acces la detectoarele private și la integrarea GitHub.
+Use [crytic.io](https://github.com/crytic) to get access to private detectors and GitHub integration.
 
 ## Analiză statică {#static-analysis}
 
@@ -106,7 +104,7 @@ function safeAdd(uint a, uint b) pure internal returns(uint){
 
 AST-ul corespunzător este indicat în:
 
-![AST](../../../../../developers/tutorials/how-to-use-slither-to-find-smart-contract-bugs/ast.png)
+![AST](./ast.png)
 
 Slither utilizează AST-ul exportat de solc.
 
@@ -127,15 +125,15 @@ class HasAddition(ExpressionVisitor):
         if expression.type == BinaryOperationType.ADDITION:
             self._result = True
 
-visitor = HasAddition(expression) # expresia este expresia care trebuie testată
-print(f'Expresia {expression} are o adunare: {visitor.result()}')
+visitor = HasAddition(expression) # expression is the expression to be tested
+print(f'The expression {expression} has a addition: {visitor.result()}')
 ```
 
 ### Graficul fluxului de control (CFG) {#control-flow-graph-cfg}
 
 Cea de-a doua reprezentare a codurilor este graficul fluxului de control (CFG). După cum sugerează și numele, este o reprezentare pe bază de grafic care expune toate căile de execuție. Fiecare nod conține una sau mai multe instrucțiuni. Marginile din grafic reprezintă operațiunile fluxului de control (dacă/atunci/altfel, buclă etc.). CFG-ul exemplului nostru anterior este:
 
-![CFG](../../../../../developers/tutorials/how-to-use-slither-to-find-smart-contract-bugs/cfg.png)
+![CFG](./cfg.png)
 
 CFG este reprezentarea pe baza căreia sunt construite cele mai multe analize.
 

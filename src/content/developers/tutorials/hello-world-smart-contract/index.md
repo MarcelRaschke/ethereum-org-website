@@ -17,7 +17,7 @@ sidebar: true
 published: 2021-03-31
 ---
 
-If you are new to blockchain development and don’t know where to start, or if you just want to understand how to deploy and interact with smart contracts, this guide is for you. We will walk through creating and deploying a simple smart contract on the Ropsten test network using a virtual wallet ([Metamask](https://metamask.io/)), [Solidity](https://docs.soliditylang.org/en/v0.8.0/), [Hardhat](https://hardhat.org/), and [Alchemy](https://alchemyapi.io/eth) (don’t worry if you don’t understand what any of this means yet, we will explain it).
+If you are new to blockchain development and don’t know where to start, or if you just want to understand how to deploy and interact with smart contracts, this guide is for you. We will walk through creating and deploying a simple smart contract on the Ropsten test network using a virtual wallet ([MetaMask](https://metamask.io/)), [Solidity](https://docs.soliditylang.org/en/v0.8.0/), [Hardhat](https://hardhat.org/), and [Alchemy](https://alchemyapi.io/eth) (don’t worry if you don’t understand what any of this means yet, we will explain it).
 
 In part 2 of this tutorial we’ll go through how we can interact with our smart contract once it’s deployed, and in part 3 we’ll cover how to publish it on Etherscan.
 
@@ -43,19 +43,19 @@ Once you’ve created an Alchemy account, you can generate an API key by creatin
 
 ## Step 3: Create an Ethereum account (address) {#step-3}
 
-We need an Ethereum account to send and receive transactions. For this tutorial, we’ll use Metamask, a virtual wallet in the browser used to manage your Ethereum account address. More on [transactions](/developers/docs/transactions/).
+We need an Ethereum account to send and receive transactions. For this tutorial, we’ll use MetaMask, a virtual wallet in the browser used to manage your Ethereum account address. More on [transactions](/developers/docs/transactions/).
 
-You can download and create a Metamask account for free [here](https://metamask.io/download.html). When you are creating an account, or if you already have an account, make sure to switch over to the “Ropsten Test Network” in the upper right (so that we’re not dealing with real money).
+You can download and create a MetaMask account for free [here](https://metamask.io/download.html). When you are creating an account, or if you already have an account, make sure to switch over to the “Ropsten Test Network” in the upper right (so that we’re not dealing with real money).
 
 ![metamask ropsten example](./metamask-ropsten-example.png)
 
 ## Step 4: Add ether from a Faucet {#step-4}
 
-In order to deploy our smart contract to the test network, we’ll need some fake ETH. To get ETH you can go to the [Ropsten faucet](https://faucet.dimensions.network/) and enter your Ropsten account address, then click “Send Ropsten ETH.” It may take some time to receive your fake ETH due to network traffic. You should see ETH in your Metamask account soon after!
+In order to deploy our smart contract to the test network, we’ll need some fake ETH. To get ETH you can go to the [Ropsten faucet](https://faucet.dimensions.network/) and enter your Ropsten account address, then click “Send Ropsten ETH.” It may take some time to receive your fake ETH due to network traffic. You should see ETH in your MetaMask account soon after!
 
 ## Step 5: Check your Balance {#step-5}
 
-To double check our balance is there, let’s make an [eth_getBalance](https://docs.alchemyapi.io/alchemy/documentation/alchemy-api-reference/json-rpc#eth_getbalance) request using [Alchemy’s composer tool](https://composer.alchemyapi.io?composer_state=%7B%22network%22%3A0%2C%22methodName%22%3A%22eth_getBalance%22%2C%22paramValues%22%3A%5B%22%22%2C%22latest%22%5D%7D). This will return the amount of ETH in our wallet. After you input your Metamask account address and click “Send Request”, you should see a response like this:
+To double check our balance is there, let’s make an [eth_getBalance](https://docs.alchemyapi.io/alchemy/documentation/alchemy-api-reference/json-rpc#eth_getbalance) request using [Alchemy’s composer tool](https://composer.alchemyapi.io?composer_state=%7B%22network%22%3A0%2C%22methodName%22%3A%22eth_getBalance%22%2C%22paramValues%22%3A%5B%22%22%2C%22latest%22%5D%7D). This will return the amount of ETH in our wallet. After you input your MetaMask account address and click “Send Request”, you should see a response like this:
 
 ```json
 { "jsonrpc": "2.0", "id": 0, "result": "0x2B5E3AF16B1880000" }
@@ -91,7 +91,8 @@ test command:
 git repository:
 keywords:
 author:
-license: (ISC)About to write to /Users/.../.../.../hello-world/package.json:
+license: (ISC)
+About to write to /Users/.../.../.../hello-world/package.json:
 
 {
   "name": "hello-world",
@@ -110,7 +111,7 @@ Approve the package.json and we’re good to go!
 
 ## Step 7: Download [Hardhat](https://hardhat.org/getting-started/#overview){#step-7}
 
-Hardhat is a development environment to compile, deploy, test, and debug your Ethereum software. It helps developers when building smart contracts and dApps locally before deploying to the live chain.
+Hardhat is a development environment to compile, deploy, test, and debug your Ethereum software. It helps developers when building smart contracts and dapps locally before deploying to the live chain.
 
 Inside our `hello-world` project run:
 
@@ -201,9 +202,9 @@ contract HelloWorld {
 
 This is a super simple smart contract that stores a message upon creation and can be updated by calling the `update` function.
 
-## Step 11: Connect Metamask & Alchemy to your project {#step-11}
+## Step 11: Connect MetaMask & Alchemy to your project {#step-11}
 
-We’ve created a Metamask wallet, Alchemy account, and written our smart contract, now it’s time to connect the three.
+We’ve created a MetaMask wallet, Alchemy account, and written our smart contract, now it’s time to connect the three.
 
 Every transaction sent from your virtual wallet requires a signature using your unique private key. To provide our program with this permission, we can safely store our private key (and Alchemy API key) in an environment file.
 
@@ -215,7 +216,7 @@ First, install the dotenv package in your project directory:
 npm install dotenv --save
 ```
 
-Then, create a `.env` file in the root directory of our project, and add your Metamask private key and HTTP Alchemy API URL to it.
+Then, create a `.env` file in the root directory of our project, and add your MetaMask private key and HTTP Alchemy API URL to it.
 
 - Follow [these instructions](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key) to export your private key
 - See below to get HTTP Alchemy API URL
@@ -233,7 +234,11 @@ PRIVATE_KEY = "your-metamask-private-key"
 
 To actually connect these to our code, we’ll reference these variables in our `hardhat.config.js` file on step 13.
 
-## Step 12: Install Ethers.js {step-12}
+<InfoBanner isWarning={true}>
+Don't commit <code>.env</code>! Please make sure never to share or expose your <code>.env</code> file with anyone, as you are compromising your secrets in doing so. If you are using version control, add your <code>.env</code> to a <a href="https://git-scm.com/docs/gitignore">gitignore</a> file.
+</InfoBanner>
+
+## Step 12: Install Ethers.js {#step-12-install-ethersjs}
 
 Ethers.js is a library that makes it easier to interact and make requests to Ethereum by wrapping [standard JSON-RPC methods](/developers/docs/apis/json-rpc/) with more user friendly methods.
 
@@ -247,22 +252,21 @@ npm install --save-dev @nomiclabs/hardhat-ethers "ethers@^5.0.0"
 
 We’ll also require ethers in our `hardhat.config.js` in the next step.
 
-## Step 13: Update hardhat.config.js {step-13}
+## Step 13: Update hardhat.config.js {#step-13-update-hardhatconfigjs}
 
 We’ve added several dependencies and plugins so far, now we need to update `hardhat.config.js` so that our project knows about all of them.
 
 Update your `hardhat.config.js` to look like this:
 
 ```
-/**
-* @type import('hardhat/config').HardhatUserConfig
-*/
-
 require('dotenv').config();
 
 require("@nomiclabs/hardhat-ethers");
 const { API_URL, PRIVATE_KEY } = process.env;
 
+/**
+* @type import('hardhat/config').HardhatUserConfig
+*/
 module.exports = {
    solidity: "0.7.3",
    defaultNetwork: "ropsten",
@@ -276,7 +280,7 @@ module.exports = {
 }
 ```
 
-## Step 14: Compile our contract {step-14}
+## Step 14: Compile our contract {#step-14-compile-our-contracts}
 
 To make sure everything is working so far, let’s compile our contract. The `compile` task is one of the built-in hardhat tasks.
 
@@ -288,7 +292,7 @@ npx hardhat compile
 
 You might get a warning about `SPDX license identifier not provided in source file` , but no need to worry about that — hopefully everything else looks good! If not, you can always message in the [Alchemy discord](https://discord.gg/u72VCg3).
 
-## Step 15: Write our deploy script {step-15}
+## Step 15: Write our deploy script {#step-15-write-our-deploy-scripts}
 
 Now that our contract is written and our configuration file is good to go, it’s time to write our contract deploy script.
 
@@ -324,7 +328,7 @@ const hello_world = await HelloWorld.deploy();
 
 Calling `deploy()` on a `ContractFactory` will start the deployment, and return a `Promise` that resolves to a `Contract`. This is the object that has a method for each of our smart contract functions.
 
-## Step 16: Deploy our contract {step-16}
+## Step 16: Deploy our contract {#step-16-deploy-our-contract}
 
 We’re finally ready to deploy our smart contract! Navigate to the command line and run:
 
@@ -342,7 +346,7 @@ If we go to the [Ropsten etherscan](https://ropsten.etherscan.io/) and search fo
 
 ![etherscan contract](./etherscan-contract.png)
 
-The `From` address should match your Metamask account address and the To address will say “Contract Creation” but if we click into the transaction we’ll see our contract address in the `To` field:
+The `From` address should match your MetaMask account address and the To address will say “Contract Creation” but if we click into the transaction we’ll see our contract address in the `To` field:
 
 ![etherscan transaction](./etherscan-transaction.png)
 
@@ -352,7 +356,7 @@ To understand what’s going on under the hood, let’s navigate to the Explorer
 ![hello world explorer](./hello-world-explorer.png)
 
 Here you’ll see a handful of JSON-RPC calls that Hardhat/Ethers made under the hood for us when we called the `.deploy()` function. Two important ones to call out here are [`eth_sendRawTransaction`](https://docs.alchemyapi.io/alchemy/documentation/alchemy-api-reference/json-rpc#eth_sendrawtransaction), which is the request to actually write our contract onto the Ropsten chain, and [`eth_getTransactionByHash`](https://docs.alchemyapi.io/alchemy/documentation/alchemy-api-reference/json-rpc#eth_gettransactionbyhash) which is a request to read information about our transaction given the hash (a typical pattern when
-transactions). To learn more about sending transactions, check out this tutorial on [sending transactions using Web3](https://docs.alchemyapi.io/alchemy/tutorials/sending-transactions-using-web3-and-alchemy)
+transactions). To learn more about sending transactions, check out this tutorial on [sending transactions using Web3](/developers/tutorials/sending-transactions-using-web3-and-alchemy/)
 
 That’s all for part 1 of this tutorial, in part 2 we’ll actually [interact with our smart contract](https://docs.alchemyapi.io/alchemy/tutorials/hello-world-smart-contract#part-2-interact-with-your-smart-contract) by updated our initial message, and in part 3 we’ll [publish our smart contract to Etherscan](https://docs.alchemyapi.io/alchemy/tutorials/hello-world-smart-contract#optional-part-3-publish-your-smart-contract-to-etherscan) so everyone will know how to interact with it.
 

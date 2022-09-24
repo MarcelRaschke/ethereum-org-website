@@ -1,4 +1,6 @@
 {
+  "page-tutorial-beginner": "Principiante",
+  "page-tutorial-intermediate": "Intermedio",
   "comp-tutorial-metadata-minute-read": "minuti letti",
   "page-tutorial-listing-policy-intro": "Prima di inviare un tutorial leggi la nostra politica di inserzione.",
   "comp-tutorial-metadata-tip-author": "Autore suggerimento",
@@ -18,5 +20,6 @@
   "page-tutorial-tags-error": "Nessun tutorial ha tutti questi tag",
   "page-tutorial-title": "Tutorial per lo sviluppo su Ethereum",
   "page-tutorials-meta-description": "Sfoglia e filtra i tutorial controllati della community di Ethereum per argomento.",
+  "page-tutorial-external-link": "Esterno",
   "page-tutorials-meta-title": "Tutorial per lo sviluppo su Ethereum"
 }

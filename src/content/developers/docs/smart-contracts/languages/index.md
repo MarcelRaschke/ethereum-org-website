@@ -5,7 +5,7 @@ lang: en
 sidebar: true
 ---
 
-A great aspect about Ethereum is that smart contracts can be programmed using relatively developer-friendly languages. If you're experienced with Python or any [curly-bracket language](https://en.wikipedia.org/wiki/List_of_programming_languages_by_type#Curly-bracket_languages), you can find a language with familiar syntax.
+A great aspect about Ethereum is that smart contracts can be programmed using relatively developer-friendly languages. If you're experienced with Python or any [curly-bracket language](https://wikipedia.org/wiki/List_of_programming_languages_by_type#Curly-bracket_languages), you can find a language with familiar syntax.
 
 The two most active and maintained languages are:
 
@@ -89,6 +89,7 @@ This example should give you a sense of what Solidity contract syntax is like. F
 - Pythonic programming language
 - Strong typing
 - Small and understandable compiler code
+- Efficient bytecode generation
 - Deliberately has less features than Solidity with the aim of making contracts more secure and easier to audit. Vyper does not support:
   - Modifiers
   - Inheritance
@@ -105,10 +106,16 @@ For more information, [read the Vyper rationale](https://vyper.readthedocs.io/en
 
 - [Documentation](https://vyper.readthedocs.io)
 - [Vyper by Example](https://vyper.readthedocs.io/en/latest/vyper-by-example.html)
+- [More Vyper by Example](https://vyper-by-example.org/)
 - [GitHub](https://github.com/vyperlang/vyper)
-- [Vyper Gitter Chatroom](https://gitter.im/vyperlang/community)
+- [Vyper community Discord chat](https://discord.gg/SdvKC79cJk)
 - [Cheat Sheet](https://reference.auditless.com/cheatsheet)
-- [Update Jan 8, 2020](https://blog.ethereum.org/2020/01/08/update-on-the-vyper-compiler)
+- [Smart contract development frameworks and tools for Vyper](/developers/docs/programming-languages/python/)
+- [VyperPunk - learn to secure and hack Vyper smart contracts](https://github.com/SupremacyTeam/VyperPunk)
+- [VyperExamples - Vyper vulnerability examples](https://www.vyperexamples.com/reentrancy)
+- [Vyper Hub for development](https://github.com/zcor/vyper-dev)
+- [Vyper greatest hits smart contract examples](https://github.com/pynchmeister/vyper-greatest-hits/tree/main/contracts)
+- [Awesome Vyper curated resources](https://github.com/spadebuilders/awesome-vyper)
 
 ### Example {#example}
 
@@ -212,7 +219,7 @@ If you're new to Ethereum and haven't done any coding with smart contract langua
 **Yul+**
 
 - A low-level, highly efficient extension to Yul.
-- Initially designed for an [optimistic rollup](/developers/docs/scaling/layer-2-rollups/#optimistic-rollups) contract.
+- Initially designed for an [optimistic rollup](/developers/docs/scaling/optimistic-rollups/) contract.
 - Yul+ can be looked at as an experimental upgrade proposal to Yul, adding new features to it.
 
 ### Important links {#important-links-2}
